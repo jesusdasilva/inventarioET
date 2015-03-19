@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="panel panel-default" >
+<div class="panel-heading">Listado de las Estaciones de Trabajo</div>
+<div class="panel-body">
+ 	<table class="table table-bordered table table-hover ">
+		<thead>
+			<tr class="success">
+				<th>Item</th>
+				<th>Usuario</th>
+				<th>Nombre de La estación</th>
+				<th>Dirección IP</th>
+				<th colspan="2">Estatus</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for e in estaciones %}
+			<tr>
+				<td>{{ e.item }}</td>
+				<td>{{ e.usuario }}</td>
+				<td>{{ e.nombre_estacion }}</td>
+				<td>{{ e.direccion_ip }}</td>
+				<td>{{ e.estatus }}</td>
+				<td>	
+					<a href="{{ app.url_generator.generate('editar', {'id_estacion': e.id_estacion,'id_empresa':e.id_empresa}) }}">
+					<button type="button" class="btn btn-default btn-xs">
+    				<span class="glyphicon glyphicon-edit"></span>Editar</button>
+					</a>
+   				    <a href="{{ app.url_generator.generate('eliminar', {'id_estacion': e.id_estacion,'id_empresa':e.id_empresa}) }}"> 
+					<button type="button" class="btn btn-default btn-xs">
+    				<span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+   					</a>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+</div>
+{% endblock %}
