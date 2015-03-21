@@ -1,23 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title '' %} - My Silex Application</title>
 
-{% extends "layout.html" %}
+        <link href="{{ app.request.basepath }}/css/main.css" rel="stylesheet" type="text/css" />
 
-{% block content %}
+        <!-- CSS de Bootstrap -->
+        <link href="{{ app.request.basepath }}/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-<form class="col-md-12">
-    <div class="form-group">
-        <input type="text" class="form-control input-lg" placeholder="Email">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control input-lg" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control input-lg" placeholder="Confirm Password">
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-        <span><a href="#">Need help?</a></span>
-        <span class="pull-right"><a href="#">New Registration</a></span>
-    </div>
-</form>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{{ app.request.basepath }}/js/jquery.min.js"></script>
 
-{% endblock %}
+        <!-- Include Bootstrap all compiled plugins -->
+        <script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+
+        
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">Datos de la Estaciones de Trabajo</div>
+<div class="panel-body">
+    
+    <form>
+
+        <div class="form-group">
+            <label for="usuario">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="inputPassword">Password</label>
+
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+
+        </div>
+
+        <div class="checkbox">
+
+            <label><input type="checkbox"> Remember me</label>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+
+</div>
+</div>
+
+    </body>
+</html>
