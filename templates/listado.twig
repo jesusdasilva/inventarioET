@@ -1,0 +1,47 @@
+{% extends "layout.twig" %}
+
+{% block contenido %}
+
+<legend>Listado de Estación de Trabajo</legend>
+
+<table class="table table-striped table-hover "> 
+<thead>
+    <tr>
+        <th>Item</th>
+        <th>Nombre Estación</th>
+        <th>Usuario</th>
+        <th>Dirección IP</th>
+        <th>VLAN</th>
+        <th colspan="2">Estatus</th>
+    </tr>
+</thead>
+<tbody>
+{% for registro in estaciones %}
+<tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ registro.estacion_nombre }}</td>
+    <td>{{ registro.usuario_nombre }}</td>
+    <td>{{ registro.estacion_ip }}</td>
+    <td>{{ registro.vlan_nombre }}</td>
+    <td>	
+        <a href="{{ app.url_generator.generate('modificar', {'id_estacion': registro.id_estacion}) }}">
+        <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-edit"></span>Modificar</button>
+        </a>
+        <a href="{{ app.url_generator.generate('ingresar', {'id_estacion': registro.id_estacion}) }}"> 
+        <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-copy"></span>Ingresar</button>
+        </a>
+        <a href="{{ app.url_generator.generate('liberar', {'id_estacion': registro.id_estacion}) }}"> 
+        <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-trash"></span>Liberar</button>
+        </a>
+    </td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+</table>
+
+{% endblock %}

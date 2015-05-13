@@ -1,0 +1,50 @@
+{% extends "layout.twig" %}
+
+{% block contenido %}
+
+
+<legend>Listado de Empresas</legend>
+
+ <a class="btn btn-primary" href=" {{ path('empresaNuevo') }}">Creae nueva Empresa</a><br /><br />
+
+<table class="table table-striped table-hover "> 
+<thead>
+    <tr>
+        <th>Item</th>
+        <th>Nombre Empresa</th>
+        <th>Acción</th>
+    </tr>
+</thead>
+<tbody>
+    
+{% include 'mensajes.twig' %}
+    
+{% for registro in empresas %}
+    
+<tr>
+    <td>{{ loop.index + (5 * pagina) }}</td>
+    <td>{{ registro.nombre }}</td>
+    <td>	
+        <a href="{{ app.url_generator.generate('empresaBuscar', {'id': registro.id}) }}">
+        <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-edit"></span>Modificar</button>
+        </a>
+        <a href="{{ app.url_generator.generate('empresaEliminar', {'id': registro.id}) }}"> 
+        <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+        </a>
+    </td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+</table>
+
+<p class="text-right">Total de Empresas: {{numeroEmpresas}}</p>
+
+{% if numeroPaginas != 0 %}
+    {% include 'empresa_listado_paginador.twig' %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<!--CABECERA-->
+    <nav role="navigation" class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">InventarioET</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">InventarioET</a> 
+            <p class="navbar-text">Sistema de control de inventarios de estaciones de trabajo</p> 
+        </div>
+
+        <div id="navbarCollapse" class="collapse navbar-collapse pull-right">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ app.url_generator.generate('nuevo') }}">Nuevo</a></li>
+                <li><a href="{{ app.url_generator.generate('listado') }}">Listado</a></li>
+            </ul>
+        </div>
+    
+    </nav>
+<!--/.CABECERA-->

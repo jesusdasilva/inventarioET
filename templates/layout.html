@@ -14,6 +14,8 @@
         <!-- Include Bootstrap all compiled plugins -->
         <script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
 
+        <!-- Include Bootstrap all compiled plugins -->
+        <script src="{{ app.request.basepath }}/js/confirm_alert.js"></script>
         
         <script type="text/javascript">
             var _gaq = _gaq || [];
@@ -29,31 +31,9 @@
     </head>
     <body>
        
-       <div class="container" style="padding: 10px;" > 
+    {% include cabecera.html %}
+
+    {% block content %}{% endblock %}
             
-        <nav role="navigation" class="navbar navbar-default">
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">Logotipo</a> 
-           <p class="navbar-text">SCITE</p> 
-
-        </div>
-
-        <div id="navbarCollapse" class="collapse navbar-collapse pull-right">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ app.url_generator.generate('nuevo') }}">Nuevo</a></li>
-                <li><a href="{{ app.url_generator.generate('listado') }}">Listado</a></li>
-            </ul>
-        </div>
-        </nav>
-
-        {% block content %}{% endblock %}
-            
-    </div> 
     </body>
 </html>

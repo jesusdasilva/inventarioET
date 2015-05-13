@@ -1,9 +1,9 @@
 <?php
 
-$nuevo = $app['controllers_factory'];
+$ingresar = $app['controllers_factory'];
 
 // CREAR UN NUEVO REGISTRO
-$nuevo->get('/nuevo', function() use ($app) {
+$ingresar->get('/nuevo', function() use ($app) {
 
 	$estacion = array('id_empresa' => __EMPRESA__);
 
@@ -13,7 +13,7 @@ $nuevo->get('/nuevo', function() use ($app) {
 ->bind('nuevo');
 
 // GUARDAR UN NUEVO REGISTRO
-$nuevo->post('/nuevo', function() use ($app) {
+$ingresar->post('/nuevo', function() use ($app) {
 
 	$estacion = array('id_estacion'    	=> $app['request']->get('id_estacion'),
 					  'usuario'      	=> $app['request']->get('usuario'),
@@ -44,4 +44,4 @@ $nuevo->post('/nuevo', function() use ($app) {
 })
 ->bind('nuevo_post');
 
-return $nuevo;
+return $ingresar;

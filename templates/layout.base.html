@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title '' %} - InvenatrioET Beta 0.1</title>
+
+        <!--CSS de Bootstrap
+        <link href="{{ app.request.basepath }}/css/main.css" rel="stylesheet" type="text/css" />
+        -->
+        
+        <!--CSS de Bootstrap-->
+        <link href="{{ app.request.basepath }}/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+        
+        <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+        <script src="{{ app.request.basepath }}/js/jquery.min.js"></script>
+
+        <!--Include Bootstrap all compiled plugins-->
+        <script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        
+    </head>
+    <body>
+    
+        <div class="container" style="padding: 5px"> 
+        
+        {% include 'barra_navegadora.html' %}
+        
+        {% block contenido %}{% endblock %}
+        
+        </div>
+        
+    </body>
+</html>
+

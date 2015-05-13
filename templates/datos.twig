@@ -1,0 +1,106 @@
+{% extends "layout.twig" %}
+
+{% block contenido %}
+
+<!--FORMULARIO DATOS-->
+<form class="form-horizontal">
+<fieldset>
+
+    <!--NOMBRE DEL FORMULARIO-->
+    <legend>Datos de la Estación de Trabajo</legend>
+    <!--/.NOMBRE DEL FORMULARIO-->
+
+    <!--TEXT INPUT NOMBRE DEL USUARIO-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="usuario_nombre">Nombre del usuario</label>  
+        <div class="col-md-4">
+        <input id="usuario_nombre" name="usuario_nombre" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Ingrese Nombre y Apellido</span>  
+        </div>
+    </div>
+    <!--/.TEXTO INPUT NOMBRE DEL USUARIO-->
+
+    <!--TEXT INPUT INDICADOR DEL USUARIO-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="usuario_indicador">Indicador del Usuario</label>  
+        <div class="col-md-4">
+        <input id="usuario_indicador" name="usuario_indicador" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Indicador PDVSA</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT INDICADOR DEL USUARIO-->
+    
+    <!--TEXT INPUT INDICADOR DEL USUARIO-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="usuario_gerencia">Gerencia</label>  
+        <div class="col-md-4">
+        <input id="usuario_gerencia" name="usuario_erencia" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Gerencia</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT INDICADOR DEL USUARIO-->
+    
+        <!--TEXT INPUT GERENCIA-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="usuario_gerencia">Gerencia</label>  
+        <div class="col-md-4">
+        <input id="usuario_gerencia" name="usuario_erencia" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Gerencia</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT GERENCIA-->
+
+    <!--TEXT INPUT UBICACION-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="estacion_nombre">Nombre de la Estación</label>  
+        <div class="col-md-4">
+        <input id="estacion_nombre" name="estacion_nombre" placeholder="" class="form-control input-md" required="" type="text">
+        <span class="help-block">Utilice la nomenclatura definida por el grupo de STE</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT UBICACION-->
+
+    <!--TEXT INPUT USUARIO DE LA ESTACION-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="estacion_usuario">Usuario de la Estación</label>  
+        <div class="col-md-4">
+        <input id="estacion_usuario" name="estacion_usuario" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Usuario con el que inicia sesión en la Estación de Trabajo</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT USUARIO DE LA ESTACION-->
+
+    <!--TEXT INPUT DIRECCION IP-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="direccion_ip">Dirección IP</label>  
+        <div class="col-md-4">
+        <input id="estacion_usuario" name="direccion_ip" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Usuario con el que inicia sesión en la Estación de Trabajo</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT DIRECCION IP-->
+
+    <!--TEXTAREA OBSERVACIONES-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="observacion">Observaciones</label>
+        <div class="col-md-4">                     
+        <textarea class="form-control" id="observacion" name="observacion"></textarea>
+        </div>
+    </div>
+    <!--./TEXTAREA OBSERVACIONES-->
+
+    <!--BUTON-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="enviar"></label>
+        <div class="col-md-4">
+        <button id="enviar" name="enviar" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+    <!--/.BUTON-->
+
+</fieldset>
+</form>
+<!--/.FORMULARIO DATOS-->
+
+{% endblock %}
+
