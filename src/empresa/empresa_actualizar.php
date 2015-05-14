@@ -26,7 +26,7 @@ $empresa->post('/empresa/actualizar', function() use ($app) {
             $app['session']->getFlashBag()->add('danger',array('message' => 'No se pudo actualizar la Empresa'));
         
             //REGRESAR AL FORMULARIO DATOS
-            return $app['twig']->render('empresa/empresa_datos.twig',array('empresa' => $empresa));
+            return $app['twig']->render('empresa/empresa_datos.twig',array('empresa' => $empresa,'editar' => 'true'));
             
         }else{
 

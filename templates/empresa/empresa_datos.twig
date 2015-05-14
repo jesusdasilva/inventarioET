@@ -3,12 +3,14 @@
 {% block contenido %}
     
 <!--FORMULARIO DATOS-->
-{% if empresa.id is defined %}
+{% if editar == true %}
+    
 <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('empresaActualizar') }}" method="post">
     <input type="hidden" name="id" id="id" value="{{ empresa.id }}" />
 {% else %}
     <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('empresaGuardar') }}" method="post">
 {% endif%}
+
 <fieldset>
 
     <!--NOMBRE DEL FORMULARIO-->

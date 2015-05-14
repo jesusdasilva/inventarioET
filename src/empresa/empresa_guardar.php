@@ -38,7 +38,7 @@ $empresa->post('/empresa/guardar', function() use ($app) {
         $app['session']->getFlashBag()->add('danger',array('message' => $e->getMessage()));
         
         //REGRESAR A LA PLANTILLA DE DATOS
-        return $app['twig']->render('empresa/empresa_datos.twig',array('empresa' => $empresa));
+        return $app['twig']->render('empresa/empresa_datos.twig',array('empresa' => $empresa, 'editar'=> 'false'));
     }
 
 })
