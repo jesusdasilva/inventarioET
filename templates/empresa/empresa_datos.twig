@@ -1,29 +1,29 @@
 {% extends "layout.twig" %}
 
 {% block contenido %}
-    
+
+<!--NOMBRE DEL FORMULARIO-->
+<legend>Datos de la Empresa</legend>
+<!--/.NOMBRE DEL FORMULARIO-->
+
 <!--FORMULARIO DATOS-->
-{% if editar == true %}
-    
-<form class="form-horizontal" role="form" action="{{ app.url_generator.generate('empresaActualizar') }}" method="post">
+
+{% if editar == TRUE  %}  
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('empresaActualizar') }}" method="post">
     <input type="hidden" name="id" id="id" value="{{ empresa.id }}" />
 {% else %}
     <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('empresaGuardar') }}" method="post">
 {% endif%}
 
 <fieldset>
-
-    <!--NOMBRE DEL FORMULARIO-->
-    <legend>Datos de la Empresa</legend>
-    <!--/.NOMBRE DEL FORMULARIO-->
-
+       
     {% include 'mensaje_alerta.twig' %}
     
     <!--TEXT INPUT NOMBRE-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="nombre">Nombre de la Empresa</label>  
         <div class="col-md-4">
-            <input required id="nombre" name="nombre"  placeholder="Campo obligatorio" class="form-control input-md text-uppercase" type="text" {% if empresa.nombre is defined %}disabled="" value="{{ empresa.nombre }}"{% endif %}>
+            <input required id="nombre" name="nombre"  placeholder="Campo obligatorio" class="form-control input-md text-uppercase" type="text" {% if editar == TRUE %}disabled="" value="{{ empresa.nombre }}"{% endif %}>
         <span class="help-block">Ingrese el Nombre de la empresa a registrar</span>  
         </div>
     </div>
@@ -49,7 +49,8 @@
 
 </fieldset>
 </form>
-<!--./FORMULARIO DATOS-->
+        
+<!--/.FORMULARIO DATOS-->
       
 {% endblock %}
 

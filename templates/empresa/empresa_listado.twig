@@ -8,7 +8,7 @@
 
 {% include 'mensaje_alerta.twig' %}
 
-<a class="btn btn-primary" href=" {{ path('empresaNuevo') }}">Crea nueva Empresa</a><br /><br />
+<a class="btn btn-primary" href="{{ app.url_generator.generate('empresaNuevo') }}">Crea nueva Empresa</a><br /><br />
 
 <table class="table table-striped table-hover "> 
 <thead>

@@ -15,7 +15,8 @@ $empresa->get('/empresa/buscar/{id}',function($id) use($app){
         $empresa = $app['db']->fetchAssoc($sql, array($id));
 
         //MOSTRAR DATOS
-        return $app['twig']->render('empresa/empresa_datos.twig',array('empresa' => $empresa));
+        return $app['twig']->render('empresa/empresa_datos.twig',
+                                    array('empresa' => $empresa ,'editar' =>TRUE));
     
     } catch (Exception $e) {
         

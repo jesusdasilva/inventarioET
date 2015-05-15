@@ -1,40 +1,40 @@
 <?php
 
 /*
- *  GERENCIA ACTUALIZAR
+ *  MARCA ACTUALIZAR
  */
 
-$gerencia->post('/gerencia/actualizar', function() use ($app) {
+$marca->post('/marca/actualizar', function() use ($app) {
 
     try{
         
-        //DATOS DEL FORMULARIO
-        $gerencia = array('id'         => $app['request']->get('id'),
-                         'nombre'      => $app['request']->get('nombre'),
-                         'observacion' => $app['request']->get('observacion'));
+        //TOMAR LOS DATOS DEL FORMULARIO
+        $marca = array('id'          => $app['request']->get('id'),
+                       'nombre'      => $app['request']->get('nombre'),
+                       'observacion' => $app['request']->get('observacion'));
 
         //ACTUALIZAR
-        $filasActualizadas = $app['db']->update('gerencias', 
-                                                array('observacion'=> $gerencia['observacion']), 
-                                                array('id'=>$gerencia['id']));
+        $filasActualizadas = $app['db']->update('marcas', 
+                                                array('observacion'=> $marca['observacion']), 
+                                                array('id'=>$marca['id']));
         
         //VERIFICAR QUE SE REALIZÓ LA ACTUALIZACIÓN
         if( $filasActualizadas <= 0 )
         {
             
             //MENSAJE
-            $app['session']->getFlashBag()->add('danger',array('message' => 'No se pudo actualizar la Gerencia'));
+            $app['session']->getFlashBag()->add('danger',array('message' => 'No se pudo actualizar la Marca'));
         
             //REGRESAR AL FORMULARIO DATOS
-            return $app['twig']->render('gerencia/gerencia_datos.tiwg',array('gerencia' => $gerencia));
+            return $app['twig']->render('marca/marca_datos.twig',array('marca' => $marca,'editar' => TRUE));
             
         }else{
 
             //MENSAJE
-            $app['session']->getFlashBag()->add('success',array('message' => 'Se actualizó con éxito la Gerencia'));
+            $app['session']->getFlashBag()->add('success',array('message' => 'Se actualizó con éxito la Marca'));
             
-            //REDIRECCIONAR A LISTAR
-            return $app->redirect($app['url_generator']->generate('gerenciaListar',array('pagina'=>0)));
+            //REDIRECCIONAR AL FORMULARIO LISTAR
+            return $app->redirect($app['url_generator']->generate('marcaListar',array('pagina'=>0)));
             
         }
     
@@ -50,4 +50,4 @@ $gerencia->post('/gerencia/actualizar', function() use ($app) {
     }
 	
 })
-->bind('gerenciaActualizar');
+->bind('marcaActualizar');

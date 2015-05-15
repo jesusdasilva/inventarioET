@@ -1,23 +1,23 @@
 <?php
 
 /*
- *  GERENCIA BUSCAR
+ *  MARCA BUSCAR
  */
 
-$gerencia->get('/gerencia/buscar/{id}',function($id) use($app){
+$marca->get('/marca/buscar/{id}',function($id) use($app){
 
     try{
 
         //SQL
-        $sql = 'SELECT * FROM gerencias WHERE id = ? ';	
+        $sql = 'SELECT * FROM marcas WHERE id = ? ';	
 
         //BUSCAR ID
-        $gerencia = $app['db']->fetchAssoc($sql, array($id));
+        $marca = $app['db']->fetchAssoc($sql, array($id));
 
         //MOSTRAR DATOS
-        return $app['twig']->render('gerencia/gerencia_datos.twig',array('gerencia' => $gerencia));
+        return $app['twig']->render('marca/marca_datos.twig',
+                                    array('marca' => $marca ,'editar' =>TRUE));
     
-    //CAPTURAR ERROR        
     } catch (Exception $e) {
         
         //MENSAJE
@@ -29,4 +29,4 @@ $gerencia->get('/gerencia/buscar/{id}',function($id) use($app){
     }
     
 })
-->bind('gerenciaBuscar');
+->bind('marcaBuscar');

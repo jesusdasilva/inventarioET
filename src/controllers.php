@@ -24,6 +24,13 @@ $app->mount('/', include __DIR__.'/../src/inicio.php');
 $app->mount('/', include __DIR__.'/../src/empresa/empresa_index.php');
 //GERENCIA
 $app->mount('/', include __DIR__.'/../src/gerencia/gerencia_index.php');
+//UBICACIÓN
+$app->mount('/', include __DIR__.'/../src/ubicacion/ubicacion_index.php');
+//MARCA
+$app->mount('/', include __DIR__.'/../src/marca/marca_index.php');
+//SISTEMA OPERATIVO
+$app->mount('/', include __DIR__.'/../src/sistema_operativo/sistema_operativo_index.php');
+
 
 
 //BUSCAR

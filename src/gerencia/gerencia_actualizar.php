@@ -26,7 +26,7 @@ $gerencia->post('/gerencia/actualizar', function() use ($app) {
             $app['session']->getFlashBag()->add('danger',array('message' => 'No se pudo actualizar la Gerencia'));
         
             //REGRESAR AL FORMULARIO DATOS
-            return $app['twig']->render('gerencia/gerencia_datos.tiwg',array('gerencia' => $gerencia));
+            return $app['twig']->render('gerencia/gerencia_datos.tiwg',array('gerencia' => $gerencia,'editar'=>TRUE));
             
         }else{
 

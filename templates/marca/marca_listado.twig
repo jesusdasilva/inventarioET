@@ -1,4 +1,4 @@
-{# EMPRESA LISTADO#}
+{# MARCA LISTADO #}
 
 {% extends "layout.twig" %}
 
@@ -8,7 +8,7 @@
 
 {% include 'mensaje_alerta.twig' %}
 
-<a class="btn btn-primary" href=" {{ path('gerenciaNuevo') }}">Crea nueva Gerencia</a><br /><br />
+<a class="btn btn-primary" href=" {{ path('marcaNuevo') }}">Crea nueva Gerencia</a><br /><br />
 
 <table class="table table-striped table-hover "> 
 <thead>
@@ -20,17 +20,17 @@
 </thead>
 <tbody>
      
-{% for registro in gerencias %}
+{% for registro in marcas %}
     
 <tr>
     <td>{{ loop.index + (5 * pagina) }}</td>
     <td>{{ registro.nombre }}</td>
     <td>	
-        <a href="{{ app.url_generator.generate('gerenciaBuscar', {'id': registro.id}) }}">
+        <a href="{{ app.url_generator.generate('marcaBuscar', {'id': registro.id}) }}">
         <button type="button" class="btn btn-default btn-xs">
         <span class="glyphicon glyphicon-edit"></span>Modificar</button>
         </a>
-        <a href="{{ app.url_generator.generate('gerenciaEliminar', {'id': registro.id}) }}" onclick="return confirm_delete();"> 
+        <a href="{{ app.url_generator.generate('marcaEliminar', {'id': registro.id}) }}" onclick="return confirm_delete();"> 
         <button type="button" class="btn btn-default btn-xs">
         <span class="glyphicon glyphicon-trash"></span>Eliminar</button>
         </a>
@@ -45,7 +45,7 @@
 <p class="text-right">Total de Gerencias: {{numeroRegistro}}</p>
 
 {% if numeroPaginas > 0 %}
-    {% include 'gerencia/gerencia_listado_paginador.twig' %}
+    {% include 'marca/marca_listado_paginador.twig' %}
 {% endif %}
 
 {% endblock %}

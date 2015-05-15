@@ -1,13 +1,15 @@
 <?php
 
 /*
- *  GERENCIA NUEVO
+ *  MARCA NUEVO
  */
 
-$gerencia->get('/gerencia/nuevo', function() use ($app) {
+$marca->get('/marca/nuevo', function() use ($app) {
 
+    $marca = array('id' =>'','nombre'=> '','observacion'=>'');
+    
     //ABRIR FORMULARIO DE DATOS EN BLANCO
-    return $app['twig']->render('gerencia/gerencia_datos.twig');
+    return $app['twig']->render('marca/marca_datos.twig', array ('marca' => $marca,'editar' => FALSE));
 
 })
-->bind('gerenciaNuevo');
+->bind('marcaNuevo');

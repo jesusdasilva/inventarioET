@@ -15,7 +15,7 @@ $gerencia->get('/gerencia/buscar/{id}',function($id) use($app){
         $gerencia = $app['db']->fetchAssoc($sql, array($id));
 
         //MOSTRAR DATOS
-        return $app['twig']->render('gerencia/gerencia_datos.twig',array('gerencia' => $gerencia));
+        return $app['twig']->render('gerencia/gerencia_datos.twig',array('gerencia' => $gerencia,'editar'=>TRUE));
     
     //CAPTURAR ERROR        
     } catch (Exception $e) {

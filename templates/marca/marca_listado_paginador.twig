@@ -1,19 +1,19 @@
-{# EMPRESA LISTADO PAGINADO #}
+{# MARCA LISTADO PAGINADO #}
 
 <ul class="pagination">
-<li><a href="{{ app.url_generator.generate('empresaListar', {'pagina':0}) }}">&laquo;</a></li>
+<li><a href="{{ app.url_generator.generate('marcaListar', {'pagina':0}) }}">&laquo;</a></li>
   
 {% for i in range (0, numeroPaginas) %}
     <li {% if (pagina == i) %} class="active" {% endif %} >
     {% if (pagina == i) %}
         <span>{{i}}<span class="sr-only"></span></span>
     {% else %}
-        <a href="{{ app.url_generator.generate('empresaListar', {'pagina':i}) }}" >    
+        <a href="{{ app.url_generator.generate('marcaListar', {'pagina':i}) }}" >    
         {{i}}
         </a>
    {% endif %}   
     </li>
 {% endfor %}
   
-<li><a href="{{ app.url_generator.generate('empresaListar', {'pagina':numeroPaginas}) }}">&raquo;</a></li>
+<li><a href="{{ app.url_generator.generate('marcaListar', {'pagina':numeroPaginas}) }}">&raquo;</a></li>
 </ul>

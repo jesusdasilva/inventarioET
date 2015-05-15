@@ -1,32 +1,32 @@
 <?php
 
 /*
- *  GERENCIA LISTAR
+ *  MARCA LISTAR
  */
 
-$gerencia->get('/gerencia/listar/{pagina}', function($pagina) use ($app) {
+$marca->get('/marca/listar/{pagina}', function($pagina) use ($app) {
 
     try{
     
         //CALCULAR LAS PÁGINAS
         $maximoRegistros = 5;
-        $sql = " SELECT count( * ) AS numero FROM gerencias "; 
+        $sql = " SELECT count( * ) AS numero FROM marcas "; 
         $numeroRegistro = $app['db']->fetchColumn($sql, array());
         $numeroPaginas = ceil($numeroRegistro / $maximoRegistros) -1;
             
         //SQL DE LOS REGISTROS DE LA PÁGINA
         $offset =  $pagina * 5;
         $sql  = " SELECT * ";
-        $sql .= " FROM gerencias ";
+        $sql .= " FROM marcas ";
         $sql .= " ORDER BY nombre ";
         $sql .= " OFFSET $offset LIMIT 5";
         
-        //BUSCAR
-        $gerencias = $app['db']->fetchAll($sql, array());
+        //BUSCAR MARCA
+        $marcas = $app['db']->fetchAll($sql, array());
 
-        //MOSTRAR DATOS
-        return $app['twig']->render('gerencia/gerencia_listado.twig',  
-                                    array('gerencias'      => $gerencias, 
+        //ENVIAR DATOS A LA PLANTILLA
+        return $app['twig']->render('marca/marca_listado.twig',  
+                                    array('marcas'       => $marcas, 
                                           'numeroPaginas'  =>$numeroPaginas,
                                           'pagina'         =>$pagina,
                                           'numeroRegistro' => $numeroRegistro));
@@ -42,4 +42,4 @@ $gerencia->get('/gerencia/listar/{pagina}', function($pagina) use ($app) {
     }
     
 })
-->bind('gerenciaListar');
+->bind('marcaListar');

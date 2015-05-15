@@ -1,15 +1,15 @@
 <?php
 
 /*
- *  MARCA ELIMINAR
+ *  UBICACION ELIMINAR
  */
 
-$marca->get('marca/eliminar/{id}', function($id) use($app){
+$ubicacion->get('ubicacion/eliminar/{id}', function($id) use($app){
 
     try {
        
         //ELIMINAR
-        $registroEliminado = $app['db']->delete('marcas', array('id' => $id));
+        $registroEliminado = $app['db']->delete('ubicaciones', array('id' => $id));
 
         //VERIFICAR QUE SE ELIMINÓ
         if( $registroEliminado <= 0 ){
@@ -20,12 +20,12 @@ $marca->get('marca/eliminar/{id}', function($id) use($app){
         }else{
 
             //MENSAJE
-            $app['session']->getFlashBag()->add('success',array('message' => 'Se eliminó con éxito la Marca'));
+            $app['session']->getFlashBag()->add('success',array('message' => 'Se eliminó con éxito la Ubicación'));
 
         }
 
         //REDIRECCIONAR AL LISTADO
-        return $app->redirect($app['url_generator']->generate('marcaListar',array('pagina'=>0)));
+        return $app->redirect($app['url_generator']->generate('ubicacionListar',array('pagina'=>0)));
 
     //CAPTURAR ERROR
     } catch (Exception $e) {
@@ -39,4 +39,4 @@ $marca->get('marca/eliminar/{id}', function($id) use($app){
     }
     
 })
-->bind('marcaEliminar');
+->bind('ubicacionEliminar');

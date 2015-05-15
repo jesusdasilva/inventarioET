@@ -1,15 +1,15 @@
 <?php
 
 /*
- *  MARCA ELIMINAR
+ *  SISTEMA OPERATIVOELIMINAR
  */
 
-$marca->get('marca/eliminar/{id}', function($id) use($app){
+$sistemaOperativo->get('sistemaOperativo/eliminar/{id}', function($id) use($app){
 
     try {
        
         //ELIMINAR
-        $registroEliminado = $app['db']->delete('marcas', array('id' => $id));
+        $registroEliminado = $app['db']->delete('sistemas_operativos', array('id' => $id));
 
         //VERIFICAR QUE SE ELIMINÓ
         if( $registroEliminado <= 0 ){
@@ -20,12 +20,12 @@ $marca->get('marca/eliminar/{id}', function($id) use($app){
         }else{
 
             //MENSAJE
-            $app['session']->getFlashBag()->add('success',array('message' => 'Se eliminó con éxito la Marca'));
+            $app['session']->getFlashBag()->add('success',array('message' => 'Se eliminó con éxito el sistema Operativo'));
 
         }
 
         //REDIRECCIONAR AL LISTADO
-        return $app->redirect($app['url_generator']->generate('marcaListar',array('pagina'=>0)));
+        return $app->redirect($app['url_generator']->generate('sistemaOperativoListar',array('pagina'=>0)));
 
     //CAPTURAR ERROR
     } catch (Exception $e) {
@@ -39,4 +39,4 @@ $marca->get('marca/eliminar/{id}', function($id) use($app){
     }
     
 })
-->bind('marcaEliminar');
+->bind('sistemaOperativoEliminar');

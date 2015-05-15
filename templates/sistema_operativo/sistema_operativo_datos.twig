@@ -1,0 +1,58 @@
+{# SISTEMA OPERATIVO DATOS #}
+
+{% extends "layout.twig" %}
+
+{% block contenido %}
+
+<!--NOMBRE DEL FORMULARIO-->
+<legend>Datos del Sistema Operativo</legend>
+<!--/.NOMBRE DEL FORMULARIO-->
+
+<!--FORMULARIO DATOS-->
+
+{% if editar == TRUE  %}  
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('sistemaOperativoActualizar') }}" method="post">
+    <input type="hidden" name="id" id="id" value="{{ sistemaOperativo.id }}" />
+{% else %}
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('sistemaOperativoGuardar') }}" method="post">
+{% endif%}
+
+<fieldset>
+
+    {% include 'mensaje_alerta.twig' %}
+    
+    <!--TEXT INPUT NOMBRE-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="nombre">Nombre del Sistema Operativo</label>  
+        <div class="col-md-4">
+            <input required id="nombre" name="nombre"  placeholder="Campo obligatorio" class="form-control input-md text-uppercase" type="text" {% if editar == TRUE  %}disabled="" value="{{ sistemaOperativo.nombre }}"{% endif %}>
+        <span class="help-block">Ingrese el Nombre del Sistema Operativo a registrar</span>  
+        </div>
+    </div>
+    <!--/.TEXTO INPUT NOMBRE-->
+
+    <!--TEXTAREA OBSERVACIONES-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="observacion">Observacion</label>
+        <div class="col-md-4">                     
+        <textarea class="form-control" id="observacion" name="observacion" >{% if sistemaOperativo.observacion is defined %}{{ sistemaOperativo.observacion }}{% endif %}</textarea>
+        </div>
+    </div>
+    <!--/.TEXTAREA OBSERVACIONES-->
+
+    <!--BUTON-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="enviar"></label>
+        <div class="col-md-4">
+            <button  class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+    <!--/.BUTON-->
+
+</fieldset>
+</form>
+        
+<!--./FORMULARIO DATOS-->
+      
+{% endblock %}
+

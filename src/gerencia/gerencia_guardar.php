@@ -38,7 +38,7 @@ $gerencia->post('/gerencia/guardar', function() use ($app) {
         $app['session']->getFlashBag()->add('danger',array('message' => $e->getMessage()));
         
         //MOSTRAR DATOS
-        return $app['twig']->render('gerencia/gerencia_datos.twig',array('gerencia' => $gerencia));
+        return $app['twig']->render('gerencia/gerencia_datos.twig',array('gerencia' => $gerencia,'editar' => FALSE));
     }
 
 })

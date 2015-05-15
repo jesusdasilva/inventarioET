@@ -1,20 +1,17 @@
-{# GERENCIA DATOS #}
-
 {% extends "layout.twig" %}
 
 {% block contenido %}
-
+    
 <!--NOMBRE DEL FORMULARIO-->
-<legend>Datos de la Gerencia</legend>
+<legend>Datos de la Ubicación</legend>
 <!--/.NOMBRE DEL FORMULARIO-->
-
+    
 <!--FORMULARIO DATOS-->
-
 {% if editar == TRUE  %}  
-    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('gerenciaActualizar') }}" method="post">
-    <input type="hidden" name="id" id="id" value="{{ gerencia.id }}" />
+<form class="form-horizontal" role="form" action="{{ app.url_generator.generate('ubicacionActualizar') }}" method="post">
+    <input type="hidden" name="id" id="id" value="{{ ubicacion.id }}" />
 {% else %}
-    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('gerenciaGuardar') }}" method="post">
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('ubicacionGuardar') }}" method="post">
 {% endif%}
 
 <fieldset>
@@ -23,10 +20,10 @@
     
     <!--TEXT INPUT NOMBRE-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="nombre">Nombre de la Gerencia</label>  
+        <label class="col-md-4 control-label" for="nombre">Nombre de la Ubicación</label>  
         <div class="col-md-4">
-            <input required id="nombre" name="nombre"  placeholder="Campo obligatorio" class="form-control input-md text-uppercase" type="text" {% if editar == TRUE  %}disabled="" value="{{ gerencia.nombre }}"{% endif %}>
-        <span class="help-block">Ingrese el Nombre de la gerencia a registrar</span>  
+            <input required id="nombre" name="nombre"  placeholder="Campo obligatorio" class="form-control input-md text-uppercase" type="text" {% if editar == TRUE %}disabled="" value="{{ ubicacion.nombre }}"{% endif %}>
+        <span class="help-block">Ingrese el Nombre de la ubicacion a registrar</span>  
         </div>
     </div>
     <!--/.TEXTO INPUT NOMBRE-->
@@ -35,7 +32,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="observacion">Observacion</label>
         <div class="col-md-4">                     
-        <textarea class="form-control" id="observacion" name="observacion" >{% if gerencia.observacion is defined %}{{ gerencia.observacion }}{% endif %}</textarea>
+        <textarea class="form-control" id="observacion" name="observacion" >{% if ubicacion.observacion is defined %}{{ ubicacion.observacion }}{% endif %}</textarea>
         </div>
     </div>
     <!--/.TEXTAREA OBSERVACIONES-->
@@ -51,7 +48,6 @@
 
 </fieldset>
 </form>
-        
 <!--./FORMULARIO DATOS-->
       
 {% endblock %}
