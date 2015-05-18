@@ -12,13 +12,13 @@
 
     <!--SELECT ESTATUS-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="estado">Estado</label>  
+        <label class="col-md-4 control-label" for="estado">Estatus</label>  
         <div class="col-md-4">
             <select  id="estado" name="estado" placeholder="" class="form-control input-md">
                 <option>Sin Asignar</option>
                 <option>Asignado</option>
             </select>
-        <span class="help-block">Estado del equipo en el inventario</span>  
+        <span class="help-block">Estatus del equipo en el inventario</span>  
         </div>
     </div>
     <!--/.SELECT ESTATUS-->
@@ -31,33 +31,43 @@
                 <option>HP</option>
                 <option>DELL</option>
             </select>
-        <span class="help-block">Estado del equipo en el inventario</span>  
+        <span class="help-block">Marca del equipo</span>  
         </div>
     </div>
     <!--/.SELECT EQUIPO MARCA-->
     
-    <!--TEXT INPUT SERIAL-->
+    <!--TEXT INPUT EQUIPO SERIAL-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="equipo_serial">Serial</label>  
+        <div class="col-md-4">
+        <input id="usuario_nombre" name="equipo_serial" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Ingrese el Serial</span>  
+        </div>
+    </div>
+    <!--/.TEXTO INPUT EQUIPO SERIALL-->
+    
+    <!--TEXT INPUT EQUIPO ETIQUETA-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="equipo_etiqueta">Etiqueta PDVSA</label>  
+        <div class="col-md-4">
+        <input id="usuario_nombre" name="equipo_etiqueta" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Ingrese el número de la etiputa PDVSA</span>  
+        </div>
+    </div>
+    <!--/.TEXTO INPUT EQUIPO ETIQUETA-->
+    
+    
+    <!--TEXT INPUT USUARIO NOMBRE-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="usuario_nombre">Nombre del usuario</label>  
         <div class="col-md-4">
         <input id="usuario_nombre" name="usuario_nombre" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Ingrese Nombre y Apellido</span>  
+        <span class="help-block">Ingrese Nombre y Apellido del usuario</span>  
         </div>
     </div>
-    <!--/.TEXTO INPUT NOMBRE DEL USUARIO-->
-    
-    
-    <!--TEXT INPUT NOMBRE DEL USUARIO-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="usuario_nombre">Nombre del usuario</label>  
-        <div class="col-md-4">
-        <input id="usuario_nombre" name="usuario_nombre" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Ingrese Nombre y Apellido</span>  
-        </div>
-    </div>
-    <!--/.TEXTO INPUT NOMBRE DEL USUARIO-->
+    <!--/.TEXTO INPUT USUARIO NOMBRE-->
 
-    <!--TEXT INPUT INDICADOR DEL USUARIO-->
+    <!--TEXT INPUT USUARIO INDICADOR-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="usuario_indicador">Indicador del Usuario</label>  
         <div class="col-md-4">
@@ -65,66 +75,107 @@
         <span class="help-block">Indicador PDVSA</span>  
         </div>
     </div>
-    <!--/.TEXT INPUT INDICADOR DEL USUARIO-->
+    <!--/.TEXT INPUT USUARIO INDICADOR-->
     
-    <!--TEXT INPUT INDICADOR DEL USUARIO-->
+    <!--TEXT INPUT USUARIO EMPRESA-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="usuario_empresa">Empresa</label>  
+        <div class="col-md-4">
+        <input id="usuario_gerencia" name="usuario_empresa" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Empresa a la cual pertenece el usuario</span>  
+        </div>
+    </div>
+    <!--/.TEXT INPUT USUARIO EMPRESA-->
+    
+        <!--TEXT INPUT USUARIO GERENCIA-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="usuario_gerencia">Gerencia</label>  
         <div class="col-md-4">
         <input id="usuario_gerencia" name="usuario_erencia" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Gerencia</span>  
+        <span class="help-block">Gerencia a la cual pertenece el usuario</span>  
         </div>
     </div>
-    <!--/.TEXT INPUT INDICADOR DEL USUARIO-->
+    <!--/.TEXT INPUT USUARIO GERENCIA-->
+
+    <!--SELECT USUARIO UBICACION-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="usuario_ubicacion">Ubicación</label>  
+        <div class="col-md-4">
+            <select  id="estado" name="usuario_ubicacion" placeholder="" class="form-control input-md">
+                <option>CBP PISO 1 EEII</option>
+                <option>CBP PISO 1 ALA SUR</option>
+            </select>
+        <span class="help-block">Ubicacón del equipo</span>  
+        </div>
+    </div>
+    <!--/.SELECT USUARIO UBICACION-->
     
-        <!--TEXT INPUT GERENCIA-->
+    <!--TEXT INPUT ALMECENAMIENTO RAM-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="usuario_gerencia">Gerencia</label>  
+        <label class="col-md-4 control-label" for="almacenamiento_ram">Memoría RAM</label>  
         <div class="col-md-4">
-        <input id="usuario_gerencia" name="usuario_erencia" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Gerencia</span>  
+        <input id="estacion_usuario" name="almacenamiento_ram" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Tamño de la Memoria RAM del equipo</span>  
         </div>
     </div>
-    <!--/.TEXT INPUT GERENCIA-->
+    <!--/.TEXT INPUT ALMECENAMIENTO RAM-->
 
-    <!--TEXT INPUT UBICACION-->
+    <!--TEXT INPUT ALMACENAMIENTO DD-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="estacion_nombre">Nombre de la Estación</label>  
+        <label class="col-md-4 control-label" for="almacenamiento_dd">Disco Duro</label>  
         <div class="col-md-4">
-        <input id="estacion_nombre" name="estacion_nombre" placeholder="" class="form-control input-md" required="" type="text">
-        <span class="help-block">Utilice la nomenclatura definida por el grupo de STE</span>  
+        <input id="estacion_usuario" name="almacenamiento_dd" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Capacidad del Disco Duro</span>  
         </div>
     </div>
-    <!--/.TEXT INPUT UBICACION-->
-
-    <!--TEXT INPUT USUARIO DE LA ESTACION-->
+    <!--/.TEXT INPUT ALMACENAMIENTO DD-->
+    
+    <!--TEXT INPUT ALMACENAMIENTO CANTIDAD DD-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="estacion_usuario">Usuario de la Estación</label>  
+        <label class="col-md-4 control-label" for="almacenamiento_dd_cantidad">Cantidad de Discos Duros</label>  
         <div class="col-md-4">
-        <input id="estacion_usuario" name="estacion_usuario" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Usuario con el que inicia sesión en la Estación de Trabajo</span>  
+        <input id="estacion_usuario" name="almacenamiento_dd_cantidad" placeholder="" class="form-control input-md" type="text">
+        <span class="help-block">Cantidad de Discos Duros que posee el equipo</span>  
         </div>
     </div>
-    <!--/.TEXT INPUT USUARIO DE LA ESTACION-->
+    <!--/.TEXT INPUT ALMACENAMIENTO CANTIDAD DD-->
 
-    <!--TEXT INPUT DIRECCION IP-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="direccion_ip">Dirección IP</label>  
-        <div class="col-md-4">
-        <input id="estacion_usuario" name="direccion_ip" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Usuario con el que inicia sesión en la Estación de Trabajo</span>  
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Procesador</h3>
         </div>
-    </div>
-    <!--/.TEXT INPUT DIRECCION IP-->
+        <div class="panel-body">
+            <!--TEXT INPUT PROCESADOR MODELO-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="procesador_modelo">Procesador Modelo/Marca</label>  
+                <div class="col-md-4">
+                <input id="estacion_usuario" name="procesador_modelo" placeholder="" class="form-control input-md" type="text">
+                <span class="help-block">Indique la Marca y Modelo del procesador</span>  
+                </div>
+            </div>
+            <!--/.TEXT INPUT PROCESADOR MODELO-->
 
-    <!--TEXTAREA OBSERVACIONES-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="observacion">Observaciones</label>
-        <div class="col-md-4">                     
-        <textarea class="form-control" id="observacion" name="observacion"></textarea>
+            <!--TEXT INPUT PROCESADOR VELOCIDAD-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="procesador_velocidad">Velocidad del Procesador</label>  
+                <div class="col-md-4">
+                <input id="estacion_usuario" name="procesador_velocidad" placeholder="" class="form-control input-md" type="text">
+                <span class="help-block">Indique la Velocidad del Procesador</span>  
+                </div>
+            </div>
+            <!--/.TEXT INPUT PROCESADOR VELOCIDAD-->
+
+            <!--TEXT INPUT PROCESADOR CANTIDAD-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="procesador_cantidad">Disco Duro</label>  
+                <div class="col-md-4">
+                <input id="estacion_usuario" name="procesador_cantidad" placeholder="" class="form-control input-md" type="text">
+                <span class="help-block">Indique la Cantidad de Procesarores</span>  
+                </div>
+            </div>
+            <!--/.TEXT INPUT PROCESADOR CANTIDAD-->
         </div>
     </div>
-    <!--./TEXTAREA OBSERVACIONES-->
 
     <!--BUTON-->
     <div class="form-group">
@@ -135,6 +186,17 @@
     </div>
     <!--/.BUTON-->
 
+    
+        <!--TEXTAREA OBSERVACIONES-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="observacion">Observaciones</label>
+        <div class="col-md-4">                     
+        <textarea class="form-control" id="observacion" name="observacion"></textarea>
+        </div>
+    </div>
+    <!--./TEXTAREA OBSERVACIONES-->
+    
+    
 </fieldset>
 </form>
 <!--/.FORMULARIO DATOS-->
