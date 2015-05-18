@@ -1,0 +1,41 @@
+estatus
+
+usuario_nombre
+usuario_indicador
+
+  `equipo_serial` varchar(20) DEFAULT NULL,
+  `equipo_etiqueta` varchar(20) DEFAULT NULL,
+
+  `almacenamiento_ram` varchar(15) DEFAULT NULL,
+  `almacenamiento_hdd` varchar(15) DEFAULT NULL,
+  `almacenamiento_hdd_cantidad` varchar(15) DEFAULT NULL,
+
+  `procesador_modelo_marca` varchar(15) DEFAULT NULL,
+  `procesador_velocidad` varchar(45) DEFAULT NULL,
+  `procesador_cantidad` varchar(45) DEFAULT NULL,
+
+  `monitor_tipo_modelo` varchar(45) DEFAULT NULL,
+  `monitor_marca` varchar(45) DEFAULT NULL,
+  `monitor_cantidad` varchar(45) DEFAULT NULL,
+
+  `video_integrada` varchar(45) DEFAULT NULL,
+  `video_memoria` varchar(45) DEFAULT NULL,
+  `video_marca_modelo` varchar(45) DEFAULT NULL,
+  `video_cantidad` varchar(45) DEFAULT NULL,
+  `red_ip` varchar(45) DEFAULT NULL,
+  `red_hostname` varchar(45) DEFAULT NULL,
+  `red_nombre_vlan` varchar(45) DEFAULT NULL,
+  `red_gateway` varchar(45) DEFAULT NULL,
+  `red_mascara` varchar(45) DEFAULT NULL,
+  `red_broadcast` varchar(45) DEFAULT NULL,
+  `energia_dispositivo` varchar(45) DEFAULT NULL,
+  `energia_estado` varchar(45) DEFAULT NULL,
+  `energia_marca` varchar(45) DEFAULT NULL,
+  `observacion` varchar(45) DEFAULT NULL,
+  `empresas_id` int(11) NOT NULL,
+  `gerencias_id` int(11) NOT NULL,
+  `ubicaciones_id` int(11) NOT NULL,
+  `marcas_id` int(11) NOT NULL,
+  `modelos_id` int(11) NOT NULL,
+  `sistemas_operativos_id` int(11) NOT NULL,
+  `aplicaciones_id` int(11) NOT NULL,
