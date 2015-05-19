@@ -1,0 +1,100 @@
+{% extends "layout.twig" %}
+
+{% block contenido %}
+
+<!--FORMULARIO DATOS-->
+<form class="form-horizontal">
+<fieldset>
+
+    <!--NOMBRE DEL FORMULARIO-->
+    <legend>Datos de la Estación de Trabajo</legend>
+    <!--/.NOMBRE DEL FORMULARIO-->
+    
+    <ul class="nav nav-tabs">
+    <li class="active"><a aria-expanded="false" href="#estatus" data-toggle="tab">Estatus</a></li>
+    <li class=""><a aria-expanded="false" href="#usuario" data-toggle="tab">Usuario</a></li>
+    <li class=""><a aria-expanded="false" href="#equipo" data-toggle="tab">Equipo</a></li>
+    <li class=""><a aria-expanded="false" href="#almacenamiento" data-toggle="tab">Almacenamiento</a></li>
+    <li class=""><a aria-expanded="false" href="#procesador" data-toggle="tab">Procesador</a></li>
+    <li class=""><a aria-expanded="false" href="#monitor" data-toggle="tab">Monitor</a></li>
+    <li class=""><a aria-expanded="false" href="#video" data-toggle="tab">Video</a></li>
+    <li class=""><a aria-expanded="false" href="#red" data-toggle="tab">Red</a></li>
+    <li class=""><a aria-expanded="false" href="#energia" data-toggle="tab">Energía</a></li>
+    <li class=""><a aria-expanded="false" href="#software" data-toggle="tab">Software</a></li>
+    <li class=""><a aria-expanded="false" href="#otros" data-toggle="tab">Otros</a></li>
+    </ul>
+    
+    <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="estatus">
+    
+        {% include estaciones_datos_estatus.twig%}
+        
+    </div>
+    <div class="tab-pane fade" id="usuario">
+    
+        {% include estaciones_datos_usuario.twig%}      
+        
+    </div>
+    <div class="tab-pane fade" id="equipo">
+    
+        {% include estaciones_datos_equipo.twig%} 
+
+    </div>
+    <div class="tab-pane fade" id="almacenamiento">
+        
+        {% include estaciones_datos_equipo.twig%} 
+    
+    </div>
+    <div class="tab-pane fade" id="procesador">
+
+        {% include estaciones_datos_procesador.twig%}
+        
+    </div>
+    <div class="tab-pane fade" id="monitor">
+        
+        {% include estaciones_datos_monitor.twig%}
+    
+    </div>
+    <div class="tab-pane fade" id="video">
+    
+        {% include estaciones_datos_video.twig%}
+        
+    </div>
+    <div class="tab-pane fade" id="red">
+       
+        {% include estaciones_datos_red.twig%}
+    
+    </div>
+    <div class="tab-pane fade" id="energia">
+        
+        {% include estaciones_datos_energia.twig%}
+        
+    </div>
+    <div class="tab-pane fade" id="energia">
+        
+        {% include estaciones_datos_software.twig%}
+        
+    </div>
+    <div class="tab-pane fade" id="otros">
+
+        {% include estaciones_datos_otros.twig%}
+        
+    </div>
+        
+    </div>
+
+    <!--BUTON-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="enviar"></label>
+        <div class="col-md-4">
+        <button id="enviar" name="enviar" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+    <!--/.BUTON-->
+        
+</fieldset>
+</form>
+<!--/.FORMULARIO DATOS-->
+
+{% endblock %}
+
