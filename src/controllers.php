@@ -30,8 +30,8 @@ $app->mount('/', include __DIR__.'/../src/ubicacion/ubicacion_index.php');
 $app->mount('/', include __DIR__.'/../src/marca/marca_index.php');
 //SISTEMA OPERATIVO
 $app->mount('/', include __DIR__.'/../src/sistema_operativo/sistema_operativo_index.php');
-
-
+//ESTACION
+$app->mount('/', include __DIR__.'/../src/estacion/estacion_index.php');
 
 //BUSCAR
 $app->mount('/', include __DIR__.'/../src/buscar.php');
