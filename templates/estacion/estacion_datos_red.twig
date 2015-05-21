@@ -1,12 +1,12 @@
 {# ESTACIONES DATOS MONITOR #}
 
-<div class="container" style="padding: 5px;padding-top: 70px; ">
+<div class="container" style="padding: 5px;padding-top: 30px; ">
             
     <!--TEXT INPUT RED IP-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="red_ip">Dirección IP</label>  
         <div class="col-md-4">
-        <input id="estacion_usuario" name="red_ip" placeholder="" class="form-control input-md" type="text">
+        <input id="red_ip" name="red_ip" placeholder="" class="form-control input-md" type="text">
         <span class="help-block">Dirección IP del equipo</span>  
         </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="red_hostname">Hostname</label>  
         <div class="col-md-4">
-        <input id="estacion_usuario" name="red_hostname" placeholder="" class="form-control input-md" type="text">
+            <input id="red_hostname" name="red_hostname" placeholder="" class="form-control input-md" type="text" {% if editar == TRUE %}disabled="" value="{{ estacion.red_hostname }}"{% endif %}>
         <span class="help-block">Nombre de la estación de trabajo</span>  
         </div>
     </div>

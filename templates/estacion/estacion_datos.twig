@@ -2,13 +2,20 @@
 
 {% block contenido %}
 
+<!--NOMBRE DEL FORMULARIO-->
+<legend>Datos de la Estación de Trabajo</legend>
+<!--/.NOMBRE DEL FORMULARIO-->
+    
 <!--FORMULARIO DATOS-->
 <form class="form-horizontal">
 <fieldset>
 
-    <!--NOMBRE DEL FORMULARIO-->
-    <legend>Datos de la Estación de Trabajo</legend>
-    <!--/.NOMBRE DEL FORMULARIO-->
+    {% if editar == TRUE  %}  
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionActualizar') }}" method="post">
+    <input type="hidden" name="id" id="id" value="{{ estacion.id }}" />
+    {% else %}
+        <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionGuardar') }}" method="post">
+    {% endif%}
     
     <ul class="nav nav-tabs">
     <li class="active"><a aria-expanded="false" href="#estatus" data-toggle="tab">Estatus</a></li>
@@ -42,7 +49,7 @@
     </div>
     <div class="tab-pane fade" id="almacenamiento">
         
-        {% include 'estacion/estacion_datos_equipo.twig' %} 
+        {% include 'estacion/estacion_datos_almacenamiento.twig' %} 
    
     </div>
     <div class="tab-pane fade" id="procesador">
@@ -70,7 +77,7 @@
         {% include 'estacion/estacion_datos_energia.twig' %}
         
     </div>
-    <div class="tab-pane fade" id="energia">
+    <div class="tab-pane fade" id="software">
         
         {% include 'estacion/estacion_datos_software.twig' %}
         
