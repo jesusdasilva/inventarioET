@@ -39,4 +39,4 @@ $empresa->get('empresa/eliminar/{id}', function($id) use($app){
     }
     
 })
-->bind('empresaEliminar');
+->bind('estacionEliminar');
