@@ -26,10 +26,10 @@ $estacion->get('/estacion/listar/{pagina}', function($pagina) use ($app) {
 
         //ENVIAR DATOS A LA PLANTILLA
         return $app['twig']->render('estacion/estacion_listado.twig',  
-                                    array('estaciones'     => $estaciones, 
+                                    array('estaciones'     =>$estaciones, 
                                           'numeroPaginas'  =>$numeroPaginas,
                                           'pagina'         =>$pagina,
-                                          'numeroRegistro' => $numeroRegistro));
+                                          'numeroRegistro' =>$numeroRegistro));
     //CAPTURAR ERROR
     }catch (Exception $e) {
      

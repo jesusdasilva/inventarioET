@@ -1,22 +1,22 @@
 <?php
 
 /*
- *  EMPRESA BUSCAR
+ *  ESTACION BUSCAR
  */
 
-$empresa->get('/empresa/buscar/{id}',function($id) use($app){
+$estacion->get('/estacion/buscar/{id}',function($id) use($app){
 
     try{
 
         //SQL
-        $sql = 'SELECT * FROM empresas WHERE id = ? ';	
+        $sql = 'SELECT * FROM estaciones WHERE id = ? ';	
 
         //BUSCAR ID
-        $empresa = $app['db']->fetchAssoc($sql, array($id));
+        $estacion = $app['db']->fetchAssoc($sql, array($id));
 
         //MOSTRAR DATOS
-        return $app['twig']->render('empresa/empresa_datos.twig',
-                                    array('empresa' => $empresa ,'editar' =>TRUE));
+        return $app['twig']->render('estacion/estacion_datos.twig',
+                                    array('estacion' => $estacion ,'editar' =>TRUE));
     
     } catch (Exception $e) {
         
@@ -29,4 +29,4 @@ $empresa->get('/empresa/buscar/{id}',function($id) use($app){
     }
     
 })
-->bind('empresaBuscar');
+->bind('estacionBuscar');

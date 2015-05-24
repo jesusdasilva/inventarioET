@@ -22,33 +22,42 @@
     </div>
     <!--/.TEXT INPUT USUARIO INDICADOR-->
 
-    <!--TEXT INPUT USUARIO EMPRESA-->
+    <!--SELECT USUARIO EMPRESA-->
     <div class="form-group">
-    <label class="col-md-4 control-label" for="usuario_empresa">Empresa</label>  
-    <div class="col-md-4">
-        <input id="usuario_gerencia" name="usuario_empresa" placeholder="" class="form-control input-md" type="text">
-    <span class="help-block">Empresa a la cual pertenece el usuario</span>  
+        <label class="col-md-4 control-label" for="usuario_empresa">Empresa</label>  
+        <div class="col-md-4">
+            <select  id="usario_empresa" name="usuario_empresa" placeholder="" class="form-control input-md">
+                {% for usuario_empresa_registro in empresas %}
+                <option value="{{ usuario_empresa_registro.id }}">{{ usuario_empresa_registro.nombre }}</option>
+                {% endfor %}
+            </select>
+        <span class="help-block">Empresa a la cual pertenece el usuario</span>  
+        </div>
     </div>
-    </div>
-    <!--/.TEXT INPUT USUARIO EMPRESA-->
-
-    <!--TEXT INPUT USUARIO GERENCIA-->
+    <!--/.SELECT USUARIO EMPRESA-->
+    
+    <!--/.SELECT USUARIO GERENCIA-->    
     <div class="form-group">
         <label class="col-md-4 control-label" for="usuario_gerencia">Gerencia</label>  
         <div class="col-md-4">
-        <input id="usuario_gerencia" name="usuario_erencia" placeholder="" class="form-control input-md" type="text">
+            <select  id="usario_gerencia" name="usuario_gerencia" placeholder="" class="form-control input-md">
+                {% for usuario_gerencia_registro in gerencias %}
+                <option value="{{ usuario_gerencia_registro.id }}">{{ usuario_gerencia_registro.nombre }}</option>
+                {% endfor %}
+            </select>
         <span class="help-block">Gerencia a la cual pertenece el usuario</span>  
         </div>
     </div>
-    <!--/.TEXT INPUT USUARIO GERENCIA-->
+    <!--/.SELECT USUARIO GERENCIA-->
 
     <!--SELECT USUARIO UBICACION-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="usuario_ubicacion">Ubicación</label>  
         <div class="col-md-4">
-            <select  id="estado" name="usuario_ubicacion" placeholder="" class="form-control input-md">
-                <option>CBP PISO 1 EEII</option>
-                <option>CBP PISO 1 ALA SUR</option>
+            <select  id="usario_ubicacion" name="usuario_ubicacion" placeholder="" class="form-control input-md">
+                {% for usuario_ubicacion_registro in ubicaciones %}
+                <option value="{{ usuario_ubicacion_registro.id }}">{{ usuario_ubicacion_registro.nombre }}</option>
+                {% endfor %}
             </select>
         <span class="help-block">Ubicacón del equipo</span>  
         </div>

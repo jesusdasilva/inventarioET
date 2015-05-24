@@ -7,15 +7,17 @@
 <!--/.NOMBRE DEL FORMULARIO-->
     
 <!--FORMULARIO DATOS-->
-<form class="form-horizontal">
-<fieldset>
 
-    {% if editar == TRUE  %}  
-    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionActualizar') }}" method="post">
-    <input type="hidden" name="id" id="id" value="{{ estacion.id }}" />
-    {% else %}
-        <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionGuardar') }}" method="post">
-    {% endif%}
+{% if editar == TRUE  %}  
+<form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionActualizar') }}" method="post">
+<input type="hidden" name="id" id="id" value="{{ estacion.id }}" />
+{% else %}
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionGuardar') }}" method="post">
+{% endif%}
+    
+<fieldset>
+    
+    {% include 'mensaje_alerta.twig' %}
     
     <ul class="nav nav-tabs">
     <li class="active"><a aria-expanded="false" href="#estatus" data-toggle="tab">Estatus</a></li>
