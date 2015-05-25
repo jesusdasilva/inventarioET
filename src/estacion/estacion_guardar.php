@@ -40,8 +40,8 @@ $estacion->post('/estacion/guardar', function() use ($app) {
             'video_cantidad'    =>$app['request']->get('video_cantidad'),
             //RED
             'red_ip'      =>$app['request']->get('red_ip'),
-            'red_hostname'=>$app['request']->get('usuario_nombre'),
-            'red_gateway' =>$app['request']->get('red_hostname'),
+            'red_hostname'=>$app['request']->get('red_hostname'),
+            'red_gateway' =>$app['request']->get('red_gateway'),
             'red_mascara' =>$app['request']->get('red_mascara'),
             'red_mac'     =>$app['request']->get('red_mac'),
             //ENERGÍA
@@ -79,8 +79,37 @@ $estacion->post('/estacion/guardar', function() use ($app) {
         //MENSAJE
         $app['session']->getFlashBag()->add('danger',array('message' => $e->getMessage()));
         
+        //BUSCAR EMPRESAS
+        $sql = " SELECT id,nombre FROM empresas "; 
+        $empresas = $app['db']->fetchAll($sql, array());
+
+        //BUSCAR GERENCIAS
+        $sql = " SELECT id,nombre FROM gerencias "; 
+        $gerencias = $app['db']->fetchAll($sql, array());
+
+        //BUSCAR UBICACIONES
+        $sql = " SELECT id,nombre FROM ubicaciones "; 
+        $ubicaciones = $app['db']->fetchAll($sql, array());
+
+        //BUSCAR MARCAS
+        $sql = " SELECT id,nombre FROM marcas "; 
+        $marcas = $app['db']->fetchAll($sql, array());
+
+        //BUSCAR SISTEMA OPERATIVO
+        $sql = " SELECT id,nombre FROM sistemas_operativos "; 
+        $sistemas_operativos = $app['db']->fetchAll($sql, array());
+
+
         //REGRESAR A LA PLANTILLA DE DATOS
-        return $app['twig']->render('estacion/estacion_datos.twig',array('estacion' => $estacion, 'editar'=> FALSE));
+        return $app['twig']->render('estacion/estacion_datos.twig', 
+                                    array ('estacion'           =>$estacion,
+                                           'empresas'           =>$empresas,
+                                           'gerencias'          =>$gerencias,
+                                           'ubicaciones'        =>$ubicaciones,
+                                           'marcas'             =>$marcas,
+                                           'sistemas_operativos'=>$sistemas_operativos,
+                                           'editar' => FALSE));
+        
     }
 
 })

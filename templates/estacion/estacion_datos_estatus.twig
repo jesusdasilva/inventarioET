@@ -4,11 +4,11 @@
 
 <!--SELECT ESTATUS-->
 <div class="form-group">
-<label class="col-md-4 control-label" for="estado">Estatus</label>  
+<label class="col-md-4 control-label" for="estatus">Estatus</label>  
 <div class="col-md-4">
-    <select  id="estado" name="estado" placeholder="" class="form-control input-md">
-    <option>Sin Asignar</option>
-    <option>Asignado</option>
+    <select  id="estatus" name="estatus" placeholder="" class="form-control input-md">
+        <option value="Sin Asignar" {% if estacion.estatus == "Sin Asignar" %} selected {%endif%} >Sin Asignar</option>
+        <option value="Asignado" {% if estacion.estatus == "Asignado" %} selected {%endif%} >Asignado</option>
     </select>
 <span class="help-block">Estatus del equipo en el inventario</span>  
 </div>

@@ -15,6 +15,9 @@
     <tr>
         <th>Item</th>
         <th>Hostname</th>
+        <th>Dirección IP</th>
+        <th>Nombre de Usuario</th>
+        <th>Estatus</th>
         <th>Acción</th>
     </tr>
 </thead>
@@ -25,6 +28,9 @@
 <tr>
     <td>{{ loop.index + (5 * pagina) }}</td>
     <td>{{ registro.red_hostname }}</td>
+    <td>{{ registro.red_ip }}</td>
+    <td>{{ registro.usuario_nombre }}</td>
+    <td>{{ registro.estatus }}</td>
     <td>	
         <a href="{{ app.url_generator.generate('estacionBuscar', {'id': registro.id}) }}">
         <button type="button" class="btn btn-default btn-xs">

@@ -2,24 +2,25 @@
 
 <div class="container" style="padding: 5px;padding-top: 30px; ">
         
-    <!--SELECT EQUPIPO MARCA-->
+    <!--SELECT EQUIPO MARCA-->
     <div class="form-group">
-    <label class="col-md-4 control-label" for="estado">Marca</label>  
-    <div class="col-md-4">
-        <select  id="estado" name="estado" placeholder="" class="form-control input-md">
-        <option>HP</option>
-        <option>DELL</option>
-        </select>
-    <span class="help-block">Marca del equipo</span>  
-    </div>
+        <label class="col-md-4 control-label" for="equipo_id_marca">Marca</label>  
+        <div class="col-md-4">
+            <select  id="equipo_id_marca" name="equipo_id_marca" placeholder="" class="form-control input-md">
+                {% for marca_registro in marcas %}
+                <option value="{{ marca_registro.id }}"{% if estacion.equipo_id_marca == marca_registro.id%} selected {% endif%} >{{ marca_registro.nombre }}</option>
+                {% endfor %}
+            </select>
+        <span class="help-block">Marca del equipo</span>  
+        </div>
     </div>
     <!--/.SELECT EQUIPO MARCA-->
-
+    
     <!--TEXT INPUT EQUIPO SERIAL-->
     <div class="form-group">
     <label class="col-md-4 control-label" for="equipo_serial">Serial</label>  
     <div class="col-md-4">
-        <input id="usuario_nombre" name="equipo_serial" placeholder="" class="form-control input-md" type="text">
+        <input id="equipo_serial" name="equipo_serial" placeholder="" class="form-control input-md" type="text" {% if estacion.equipo_serial is defined %}value="{{ estacion.equipo_serial }}"{% endif %}>
     <span class="help-block">Ingrese el serial</span>  
     </div>
     </div>
@@ -27,9 +28,9 @@
 
     <!--TEXT INPUT EQUIPO ETIQUETA-->
     <div class="form-group">
-    <label class="col-md-4 control-label" for="equipo_etiqueta">Etiqueta PDVSA</label>  
+    <label class="col-md-4 control-label" for="equipo_etiqueta_pdvsa">Etiqueta PDVSA</label>  
     <div class="col-md-4">
-        <input id="usuario_nombre" name="equipo_etiqueta" placeholder="" class="form-control input-md" type="text">
+        <input id="equipo_etiqueta_pdvsa" name="equipo_etiqueta_pdvsa" placeholder="" class="form-control input-md" type="text">
     <span class="help-block">Ingrese el número de la etiqueta PDVSA</span>  
     </div>
     </div>

@@ -9,8 +9,8 @@
 <!--FORMULARIO DATOS-->
 
 {% if editar == TRUE  %}  
-<form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionActualizar') }}" method="post">
-<input type="hidden" name="id" id="id" value="{{ estacion.id }}" />
+    <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionActualizar') }}" method="post">
+    <input type="hidden" name="id" id="id" value="{{ estacion.id }}" />
 {% else %}
     <form class="form-horizontal" role="form" action="{{ app.url_generator.generate('estacionGuardar') }}" method="post">
 {% endif%}

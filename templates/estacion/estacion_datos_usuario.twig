@@ -6,7 +6,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="usuario_nombre">Nombre del usuario</label>  
     <div class="col-md-4">
-        <input id="usuario_nombre" name="usuario_nombre" placeholder="" class="form-control input-md" type="text">
+        <input id="usuario_nombre" name="usuario_nombre" placeholder="" class="form-control input-md" type="text" {% if estacion.usuario_nombre is defined %}value="{{ estacion.usuario_nombre }}"{% endif %}>
     <span class="help-block">Ingrese Nombre y Apellido del usuario</span>  
     </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="usuario_indicador">Indicador del Usuario</label>  
     <div class="col-md-4">
-        <input id="usuario_indicador" name="usuario_indicador" placeholder="" class="form-control input-md" type="text">
+        <input id="usuario_indicador" name="usuario_indicador" placeholder="" class="form-control input-md" type="text" {% if estacion.usuario_indicador is defined %}value="{{ estacion.usuario_indicador }}"{% endif %}>
     <span class="help-block">Indicador PDVSA</span>  
     </div>
     </div>
@@ -24,11 +24,11 @@
 
     <!--SELECT USUARIO EMPRESA-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="usuario_empresa">Empresa</label>  
+        <label class="col-md-4 control-label" for="usuario_id_empresa">Empresa</label>  
         <div class="col-md-4">
-            <select  id="usario_empresa" name="usuario_empresa" placeholder="" class="form-control input-md">
-                {% for usuario_empresa_registro in empresas %}
-                <option value="{{ usuario_empresa_registro.id }}">{{ usuario_empresa_registro.nombre }}</option>
+            <select  id="usuario_id_empresa" name="usuario_id_empresa" placeholder="" class="form-control input-md">
+                {% for empresa_registro in empresas %}
+                <option {% if estacion.usuario_id_empresa == empresa_registro.id %} selected {%endif%} value="{{ empresa_registro.id }}">{{ empresa_registro.nombre }}</option>
                 {% endfor %}
             </select>
         <span class="help-block">Empresa a la cual pertenece el usuario</span>  
@@ -38,11 +38,11 @@
     
     <!--/.SELECT USUARIO GERENCIA-->    
     <div class="form-group">
-        <label class="col-md-4 control-label" for="usuario_gerencia">Gerencia</label>  
+        <label class="col-md-4 control-label" for="usuario_id_gerencia">Gerencia</label>  
         <div class="col-md-4">
-            <select  id="usario_gerencia" name="usuario_gerencia" placeholder="" class="form-control input-md">
-                {% for usuario_gerencia_registro in gerencias %}
-                <option value="{{ usuario_gerencia_registro.id }}">{{ usuario_gerencia_registro.nombre }}</option>
+            <select  id="usuario_id_gerencia" name="usuario_id_gerencia" placeholder="" class="form-control input-md">
+                {% for gerencia_registro in gerencias %}
+                <option value="{{ gerencia_registro.id }}">{{ gerencia_registro.nombre }}</option>
                 {% endfor %}
             </select>
         <span class="help-block">Gerencia a la cual pertenece el usuario</span>  
@@ -52,11 +52,11 @@
 
     <!--SELECT USUARIO UBICACION-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="usuario_ubicacion">Ubicación</label>  
+        <label class="col-md-4 control-label" for="usuario_id_ubicacion">Ubicación</label>  
         <div class="col-md-4">
-            <select  id="usario_ubicacion" name="usuario_ubicacion" placeholder="" class="form-control input-md">
-                {% for usuario_ubicacion_registro in ubicaciones %}
-                <option value="{{ usuario_ubicacion_registro.id }}">{{ usuario_ubicacion_registro.nombre }}</option>
+            <select  id="usuario_id_ubicacion" name="usuario_id_ubicacion" placeholder="" class="form-control input-md">
+                {% for ubicacion_registro in ubicaciones %}
+                <option value="{{ ubicacion_registro.id }}">{{ ubicacion_registro.nombre }}</option>
                 {% endfor %}
             </select>
         <span class="help-block">Ubicacón del equipo</span>  

@@ -15,7 +15,7 @@ $empresa->get('empresa/eliminar/{id}', function($id) use($app){
         if( $registroEliminado <= 0 ){
 
             //MENSAJE
-            $app['session']->getFlashBag()->add('danger',array('message' => $mensaje));
+            $app['session']->getFlashBag()->add('danger',array('message' => 'No se pudo eliminar la Gerencia'));
 
         }else{
 
