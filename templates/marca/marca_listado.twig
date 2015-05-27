@@ -4,11 +4,11 @@
 
 {% block contenido %}
 
-<legend>Listado de Gerencias</legend>
+<legend>Listado de las Marcas</legend>
 
 {% include 'mensaje_alerta.twig' %}
 
-<a class="btn btn-primary" href=" {{ path('marcaNuevo') }}">Crea nueva Gerencia</a><br /><br />
+<a class="btn btn-primary" href=" {{ path('marcaNuevo') }}">Crea nueva Marca</a><br /><br />
 
 <table class="table table-striped table-hover "> 
 <thead>
@@ -42,7 +42,7 @@
 </tbody>
 </table>
 
-<p class="text-right">Total de Gerencias: {{numeroRegistro}}</p>
+<p class="text-right">Total de Marcas: {{numeroRegistro}}</p>
 
 {% if numeroPaginas > 0 %}
     {% include 'marca/marca_listado_paginador.twig' %}

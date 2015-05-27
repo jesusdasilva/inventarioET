@@ -1,15 +1,15 @@
-{# ESTACIONES DATOS MONITOR #}
+{# ESTACIONES DATOS OTROS #}
 
 <div class="container" style="padding: 5px;padding-top: 30px; ">
 
-    <!--TEXTAREA OBSERVACION-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="observacion">Observaciones</label>
-        <div class="col-md-4">                     
-        <textarea class="observacion" id="observacion" name="observacion"></textarea>
-         <span class="help-block">Observación sobre el estado de la Estación de Trabajo</span>
-        </div>
-    </div>
-    <!--./TEXTAREA OBSERVACIONES-->
+<!--TEXTAREA OBSERVACION-->
+<div class="form-group">
+<label class="col-md-4 control-label" for="observacion">Observaciones</label>
+<div class="col-md-4">                     
+    <textarea class="form-control" id="observacion" name="observacion">{% if estacion.observacion is defined %} {{ estacion.observacion }} {% endif %}</textarea>
+<span class="help-block">Observación sobre el estado de la Estación de Trabajo</span>
+</div>
+</div>
+<!--./TEXTAREA OBSERVACIONES-->
 
 </div>

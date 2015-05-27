@@ -4,51 +4,52 @@
             
     <!--TEXT INPUT RED IP-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="red_ip">Dirección IP</label>  
-        <div class="col-md-4">
-        <input id="red_ip" name="red_ip" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Dirección IP del equipo</span>  
-        </div>
+    <label class="col-md-4 control-label" for="red_ip">Dirección IP</label>  
+    <div class="col-md-4">
+        <input id="red_ip" name="red_ip" placeholder="" class="form-control input-md" type="text" {% if estacion.red_ip is defined %}value="{{ estacion.red_ip }}"{% endif %}>
+    <span class="help-block">Dirección IP del equipo</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT RED IP-->
 
     <!--TEXT INPUT RED HOSTNAME-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="red_hostname">Hostname</label>  
-        <div class="col-md-4">
-            <input id="red_hostname" name="red_hostname" placeholder="" class="form-control input-md" type="text" {% if editar == TRUE %}disabled="" value="{{ estacion.red_hostname }}"{% endif %}>
-        <span class="help-block">Nombre de la estación de trabajo</span>  
-        </div>
+    <label class="col-md-4 control-label" for="red_hostname">Hostname</label>  
+    <div class="col-md-4">
+        <input id="red_hostname" name="red_hostname" placeholder="" class="form-control input-md" type="text" {% if estacion.red_hostname is defined %}value="{{ estacion.red_hostname }}" {% endif %} {% if editar == TRUE %} readonly="readonly" {% endif %}>
+    <span class="help-block">Nombre de la estación de trabajo</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT RED HOSTNAME-->
 
     <!--TEXT INPUT RED GATEWAY-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="red_gateway">Gateway de la Red</label>  
-        <div class="col-md-4">
-        <input id="red_gateway" name="red_gateway" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Gateway de la red donde esta conectado el equipo</span>  
-        </div>
+    <label class="col-md-4 control-label" for="red_gateway">Gateway de la Red</label>  
+    <div class="col-md-4">
+        <input id="red_gateway" name="red_gateway" placeholder="" class="form-control input-md" type="text" {% if estacion.red_gateway is defined %}value="{{ estacion.red_gateway}}"{% endif %}>
+    <span class="help-block">Gateway de la red donde esta conectado el equipo</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT GATEWAY-->
 
     <!--TEXT INPUT RED MASCARA-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="red_mascara">Mascara</label>  
-        <div class="col-md-4">
-        <input id="red_mascara" name="red_mascara" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Mascara de la red donde esta conectado el equipo</span>  
-        </div>
+    <label class="col-md-4 control-label" for="red_mascara">Mascara</label>  
+    <div class="col-md-4">
+    <input id="red_mascara" name="red_mascara" placeholder="" class="form-control input-md" type="text" 
+        <input id="red_gateway" name="red_gateway" placeholder="" class="form-control input-md" type="text" {% if estacion.red_mascara is defined %}value="{{ estacion.red_mascara }}"{% endif %}>
+    <span class="help-block">Mascara de la red donde esta conectado el equipo</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT RED MASCARA-->
 
     <!--TEXT INPUT MAC-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="red_mac">MAC</label>  
-        <div class="col-md-4">
-        <input id="red_mac" name="red_mac" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">MAC de la tarjeta de Red</span>  
-        </div>
+    <label class="col-md-4 control-label" for="red_mac">MAC</label>  
+    <div class="col-md-4">
+        <input id="red_mac" name="red_mac" placeholder="" class="form-control input-md" type="text" {% if estacion.red_mac is defined %}value="{{ estacion.red_mac }}"{% endif %}>
+    <span class="help-block">MAC de la tarjeta de Red</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT RED MASCARA-->
 

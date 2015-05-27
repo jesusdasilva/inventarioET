@@ -1,4 +1,4 @@
-{# ESTACIONES DATOS ALMACENAMIENTO #}
+ {# ESTACIONES DATOS ALMACENAMIENTO #}
 
 <div class="container" style="padding: 5px;padding-top: 30px; ">
         
@@ -6,7 +6,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="almacenamiento_ram">Memoría RAM</label>  
     <div class="col-md-4">
-        <input id="almacenamiento_ram" name="almacenamiento_ram" placeholder="" class="form-control input-md" type="text">
+        <input id="almacenamiento_ram" name="almacenamiento_ram" placeholder="" class="form-control input-md" type="text" {% if estacion.almacenamiento_ram is defined %}value="{{ estacion.almacenamiento_ram }}"{% endif %}>
     <span class="help-block">Tamaño de la Memoria RAM del equipo</span>  
     </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="almacenamiento_dd">Disco Duro</label>  
     <div class="col-md-4">
-        <input id="almacenamiento_dd" name="almacenamiento_dd" placeholder="" class="form-control input-md" type="text">
+        <input id="almacenamiento_dd" name="almacenamiento_dd" placeholder="" class="form-control input-md" type="text" {% if estacion.almacenamiento_dd is defined %}value="{{ estacion.almacenamiento_dd }}"{% endif %}>
     <span class="help-block">Capacidad del Disco Duro</span>  
     </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="almacenamiento_dd_cantidad">Cantidad de Discos Duros</label>  
     <div class="col-md-4">
-        <input id="almacenamiento_dd_cantidad" name="almacenamiento_dd_cantidad" placeholder="" class="form-control input-md" type="text">
+        <input id="almacenamiento_dd_cantidad" name="almacenamiento_dd_cantidad" placeholder="" class="form-control input-md" type="text" {% if estacion.almacenamiento_dd_cantidad is defined %}value="{{ estacion.almacenamiento_dd_cantidad }}"{% endif %}>
     <span class="help-block">Cantidad de Discos Duros que posee el equipo</span>  
     </div>
     </div>

@@ -1,4 +1,4 @@
-{# ESTACIONES DATOS MONITOR #}
+{# ESTACIONES DATOS SOFTWARE #}
 
 <div class="container" style="padding: 5px;padding-top: 30px; ">
    
@@ -6,11 +6,11 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="software_id_sistema_operativo">Sistema Operativo</label>  
     <div class="col-md-4">
-            <select  id="software_id_sistema_operativo" name="software_id_sistema_operativo" placeholder="" class="form-control input-md">
-                {% for sistema_operativo_registro in sistemas_operativos %}
-                <option value="{{ sistema_operativo_registro.id }}">{{ sistema_operativo_registro.nombre }}</option>
-                {% endfor %}
-            </select>
+        <select  id="software_id_sistema_operativo" name="software_id_sistema_operativo" placeholder="" class="form-control input-md">
+        {% for sistema_operativo_registro in sistemas_operativos %}
+            <option value="{{ sistema_operativo_registro.id }}" {% if estacion.software_id_sistema_operativo == sistema_operativo_registro.id %} selected {% endif%} >{{ sistema_operativo_registro.nombre }}</option>
+        {% endfor %}
+         </select>
     <span class="help-block">Sistema operativo que tiene instalado el equipo</span>  
     </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="software_aplicaciones">Aplicaciones</label>
         <div class="col-md-4">                     
-        <textarea class="form-control" id="software_aplicaciones" name="software_aplicaciones"></textarea>
+        <textarea class="form-control" id="software_aplicaciones" name="software_aplicaciones"> {% if estacion.software_aplicaciones is defined %} {{estacion.software_aplicaciones }} {% endif %}</textarea>
          <span class="help-block">Aplicaciones instaladas en la Estación de Trabajo</span>
         </div>
     </div>

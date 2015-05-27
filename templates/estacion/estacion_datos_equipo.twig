@@ -30,7 +30,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="equipo_etiqueta_pdvsa">Etiqueta PDVSA</label>  
     <div class="col-md-4">
-        <input id="equipo_etiqueta_pdvsa" name="equipo_etiqueta_pdvsa" placeholder="" class="form-control input-md" type="text">
+        <input id="equipo_etiqueta_pdvsa" name="equipo_etiqueta_pdvsa" placeholder="" class="form-control input-md" type="text" {% if estacion.equipo_etiqueta_pdvsa is defined %}value="{{ estacion.equipo_etiqueta_pdvsa }}"{% endif %}>
     <span class="help-block">Ingrese el número de la etiqueta PDVSA</span>  
     </div>
     </div>

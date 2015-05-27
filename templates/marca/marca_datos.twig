@@ -5,7 +5,7 @@
 {% block contenido %}
 
 <!--NOMBRE DEL FORMULARIO-->
-<legend>Datos de la Gerencia</legend>
+<legend>Datos de las Marcas</legend>
 <!--/.NOMBRE DEL FORMULARIO-->
 
 <!--FORMULARIO DATOS-->
@@ -23,10 +23,10 @@
     
     <!--TEXT INPUT NOMBRE-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="nombre">Nombre de la Gerencia</label>  
+        <label class="col-md-4 control-label" for="nombre">Nombre de la Marca</label>  
         <div class="col-md-4">
             <input required id="nombre" name="nombre"  placeholder="Campo obligatorio" class="form-control input-md text-uppercase" type="text" {% if editar == TRUE  %}disabled="" value="{{ marca.nombre }}"{% endif %}>
-        <span class="help-block">Ingrese el Nombre de la marca a registrar</span>  
+        <span class="help-block">Ingrese el Nombre de la Marca a registrar</span>  
         </div>
     </div>
     <!--/.TEXTO INPUT NOMBRE-->

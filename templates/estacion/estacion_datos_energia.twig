@@ -1,14 +1,14 @@
-{# ESTACIONES DATOS MONITOR #}
+{# ESTACIONES DATOS ENERGIA #}
 
 <div class="container" style="padding: 5px;padding-top: 30px; ">
             
     <!--TEXT INPUT ENERGÍA DISPOSITIVO-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="energia_dispositivo">Dispositivo</label>  
-        <div class="col-md-4">
-        <input id="energia_dispositivo" name="energia_dispositivo" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Especifique el dispositivo de energia que posee el equipo</span>  
-        </div>
+    <label class="col-md-4 control-label" for="energia_dispositivo">Dispositivo</label>  
+    <div class="col-md-4">
+        <input id="energia_dispositivo" name="energia_dispositivo" placeholder="" class="form-control input-md" type="text" {% if estacion.energia_dispositivo is defined %} value="{{ estacion.energia_dispositivo }}" {% endif %}>
+    <span class="help-block">Especifique el dispositivo de energia que posee el equipo</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT ENERGÍA DISPOSITIVO-->
 
@@ -16,7 +16,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="energia_estado">Estado</label>  
         <div class="col-md-4">
-        <input id="energia_estado" name="energia_estado" placeholder="" class="form-control input-md" type="text">
+        <input id="energia_estado" name="energia_estado" placeholder="" class="form-control input-md" type="text" {% if estacion.energia_estado is defined %}value="{{ estacion.energia_estado }}"{% endif %}>
         <span class="help-block">Estado del dispositivo de energía</span>  
         </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="energia_marca_modelo">Energía Marca/Modelo</label>  
     <div class="col-md-4">
-        <input id="energia_marca_modelo" name="energia_marca_modelo" placeholder="" class="form-control input-md" type="text">
+        <input id="energia_marca_modelo" name="energia_marca_modelo" placeholder="" class="form-control input-md" type="text" {% if estacion.energia_marca_modelo is defined %}value="{{ estacion.energia_marca_modelo }}"{% endif %}>
     <span class="help-block">Indique la Marca y Modelo del dispositivo de Energía</span>  
     </div>
     </div>

@@ -4,31 +4,31 @@
 
      <!--TEXT INPUT PROCESADOR MODELO-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="procesador_marca_model">Procesador Modelo/Marca</label>  
-        <div class="col-md-4">
-        <input id="procesador_marca_model" name="procesador_marca_model" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Indique la Marca y Modelo del procesador</span>  
-        </div>
+    <label class="col-md-4 control-label" for="procesador_marca_modeloo">Procesador Modelo/Marca</label>  
+    <div class="col-md-4">
+        <input id="procesador_marca_modelo" name="procesador_marca_modelo" placeholder="" class="form-control input-md" type="text"  {% if estacion.procesador_marca_modelo is defined %}value="{{ estacion.procesador_marca_modelo }}"{% endif %}>
+    <span class="help-block">Indique la Marca y Modelo del procesador</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT PROCESADOR MODELO-->
 
     <!--TEXT INPUT PROCESADOR VELOCIDAD-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="procesador_velocidad">Velocidad del Procesador</label>  
-        <div class="col-md-4">
-        <input id="procesador_velocidad" name="procesador_velocidad" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Indique la Velocidad del Procesador</span>  
-        </div>
+    <label class="col-md-4 control-label" for="procesador_velocidad">Velocidad del Procesador</label>  
+    <div class="col-md-4">
+        <input id="procesador_velocidad" name="procesador_velocidad" placeholder="" class="form-control input-md" type="text" {% if estacion.procesador_velocidad is defined %}value="{{ estacion.procesador_velocidad }}"{% endif %}>
+    <span class="help-block">Indique la Velocidad del Procesador</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT PROCESADOR VELOCIDAD-->
 
     <!--TEXT INPUT PROCESADOR CANTIDAD-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="procesador_cantidad">Cantidad de Procesador</label>  
-        <div class="col-md-4">
-        <input id="procesador_cantidad" name="procesador_cantidad" placeholder="" class="form-control input-md" type="text">
-        <span class="help-block">Indique la Cantidad de Procesarores</span>  
-        </div>
+    <label class="col-md-4 control-label" for="procesador_cantidad">Cantidad de Procesador</label>  
+    <div class="col-md-4">
+        <input id="procesador_cantidad" name="procesador_cantidad" placeholder="" class="form-control input-md" type="text" {% if estacion.procesador_cantidad is defined %}value="{{ estacion.procesador_cantidad }}"{% endif %}>
+    <span class="help-block">Indique la Cantidad de Procesarores</span>  
+    </div>
     </div>
     <!--/.TEXT INPUT PROCESADOR CANTIDAD-->
 

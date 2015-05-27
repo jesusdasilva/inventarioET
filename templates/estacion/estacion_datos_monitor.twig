@@ -6,7 +6,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="monitor_marca_modelo">Monitor Modelo/Marca</label>  
     <div class="col-md-4">
-        <input id="monitor_marca_modelo" name="monitor_marca_modelo" placeholder="" class="form-control input-md" type="text">
+        <input id="monitor_marca_modelo" name="monitor_marca_modelo" placeholder="" class="form-control input-md" type="text" {% if estacion.monitor_marca_modelo is defined %}value="{{ estacion.monitor_marca_modelo }}"{% endif %}>
     <span class="help-block">Marca y modelo del Monitor</span>  
     </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="monitor_tamaño">Tamaño</label>  
     <div class="col-md-4">
-        <input id="monitor_tamaño" name="monitor_tamaño" placeholder="" class="form-control input-md" type="text">
+        <input id="monitor_tamaño" name="monitor_tamaño" placeholder="" class="form-control input-md" type="text" {% if estacion.monitor_tamaño is defined %}value="{{ estacion.monitor_tamaño }}"{% endif %}>
     <span class="help-block">Exprese el tamaño del monitor en pulgadas</span>  
     </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label" for="monitor_cantidad">Cantidad de Monitores</label>  
     <div class="col-md-4">
-        <input id="monitor_cantidad" name="monitor_cantidad" placeholder="" class="form-control input-md" type="text">
+        <input id="monitor_cantidad" name="monitor_cantidad" placeholder="" class="form-control input-md" type="text" {% if estacion.monitor_cantidad is defined %}value="{{ estacion.monitor_cantidad }}"{% endif %}>
     <span class="help-block">Ingrese la cantidad de monitores que posee el equipo</span>  
     </div>
     </div>
