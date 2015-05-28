@@ -4,6 +4,43 @@
  *  ESTACION BUSCAR
  */
 
+
+
+
+//FORMULARIO BUSCAR
+$estacion->get('/estacion/buscar',function() use($app){
+
+    //BUSCAR EMPRESAS
+    $sql = " SELECT id,nombre FROM empresas "; 
+    $empresas = $app['db']->fetchAll($sql, array());
+
+    //BUSCAR GERENCIAS
+    $sql = " SELECT id,nombre FROM gerencias "; 
+    $gerencias = $app['db']->fetchAll($sql, array());
+
+    //BUSCAR UBICACIONES
+    $sql = " SELECT id,nombre FROM ubicaciones "; 
+    $ubicaciones = $app['db']->fetchAll($sql, array());
+
+    //BUSCAR MARCAS
+    $sql = " SELECT id,nombre FROM marcas "; 
+    $marcas = $app['db']->fetchAll($sql, array());
+
+    //BUSCAR SISTEMA OPERATIVO
+    $sql = " SELECT id,nombre FROM sistemas_operativos "; 
+    $sistemas_operativos = $app['db']->fetchAll($sql, array());
+        
+    //FORMULARIO BUSCAR
+    return $app['twig']->render('estacion/estacion_buscar.twig',array('empresas' => $empresas,
+                                                                      'gerencias'          =>$gerencias,
+                                                                      'ubicaciones'        =>$ubicaciones,
+                                                                      'marcas'             =>$marcas,
+                                                                      'sistemas_operativos'=>$sistemas_operativos));
+
+})
+->bind('estacionBuscar');
+
+//BUSCAR ID
 $estacion->get('/estacion/buscar/{id}',function($id) use($app){
 
     try{
@@ -55,4 +92,4 @@ $estacion->get('/estacion/buscar/{id}',function($id) use($app){
     }
     
 })
-->bind('estacionBuscar');
+->bind('estacionBuscarID');

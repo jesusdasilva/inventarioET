@@ -26,7 +26,7 @@ $estacion->post('/estacion/actualizar', function() use ($app) {
             'almacenamiento_dd'         =>$app['request']->get('almacenamiento_dd'),
             'almacenamiento_dd_cantidad'=>$app['request']->get('almacenamiento_dd_cantidad'),
             //PROCESADOR        
-            'procesador_marca_modelo'=>$app['request']->get('procesador_marca_model'),
+            'procesador_marca_modelo'=>$app['request']->get('procesador_marca_modelo'),
             'procesador_velocidad'   =>$app['request']->get('procesador_velocidad'),
             'procesador_cantidad'    =>$app['request']->get('procesador_cantidad'),
             //MONITOR
@@ -52,7 +52,7 @@ $estacion->post('/estacion/actualizar', function() use ($app) {
             'software_id_sistema_operativo'=>$app['request']->get('software_id_sistema_operativo'),
             'software_aplicaciones'        =>$app['request']->get('software_aplicaciones'),
             //OTRO
-            'observacion'=>$app['request']->get('observacion'));
+            'observacion'=>trim($app['request']->get('observacion')));
 
         //ACTUALIZAR
         $filasActualizadas = $app['db']->update('estaciones',

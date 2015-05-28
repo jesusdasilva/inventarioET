@@ -4,9 +4,9 @@
 
      <!--TEXT INPUT PROCESADOR MODELO-->
     <div class="form-group">
-    <label class="col-md-4 control-label" for="procesador_marca_modeloo">Procesador Modelo/Marca</label>  
+    <label class="col-md-4 control-label" for="procesador_marca_modelo">Procesador Modelo/Marca</label>  
     <div class="col-md-4">
-        <input id="procesador_marca_modelo" name="procesador_marca_modelo" placeholder="" class="form-control input-md" type="text"  {% if estacion.procesador_marca_modelo is defined %}value="{{ estacion.procesador_marca_modelo }}"{% endif %}>
+        <input id="procesador_marca_modelo" name="procesador_marca_modelo" placeholder="" class="form-control input-md" type="text"  {% if estacion.procesador_marca_modelo is defined %} value="{{ estacion.procesador_marca_modelo }}" {% endif %} maxlength="10">
     <span class="help-block">Indique la Marca y Modelo del procesador</span>  
     </div>
     </div>

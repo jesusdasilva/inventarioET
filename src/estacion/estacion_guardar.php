@@ -26,7 +26,7 @@ $estacion->post('/estacion/guardar', function() use ($app) {
             'almacenamiento_dd'         =>$app['request']->get('almacenamiento_dd'),
             'almacenamiento_dd_cantidad'=>$app['request']->get('almacenamiento_dd_cantidad'),
             //PROCESADOR        
-            'procesador_marca_modelo'=>$app['request']->get('procesador_marca_model'),
+            'procesador_marca_modelo'=>$app['request']->get('procesador_marca_modelo'),
             'procesador_velocidad'   =>$app['request']->get('procesador_velocidad'),
             'procesador_cantidad'    =>$app['request']->get('procesador_cantidad'),
             //MONITOR

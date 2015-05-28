@@ -32,7 +32,7 @@
     <td>{{ registro.usuario_nombre }}</td>
     <td>{{ registro.estatus }}</td>
     <td>	
-        <a href="{{ app.url_generator.generate('estacionBuscar', {'id': registro.id}) }}">
+        <a href="{{ app.url_generator.generate('estacionBuscarID', {'id': registro.id}) }}">
         <button type="button" class="btn btn-default btn-xs">
         <span class="glyphicon glyphicon-edit"></span>Modificar</button>
         </a>

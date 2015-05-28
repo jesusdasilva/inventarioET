@@ -1,0 +1,144 @@
+{# FORMULARIO ESTACIÓN BUSCAR #}
+
+{% extends "layout.twig" %}
+
+{% block contenido %}
+
+<!--NOMBRE DEL FORMULARIO-->
+<legend>Buscar Estación de Trabajo</legend>
+<!--/.NOMBRE DEL FORMULARIO-->
+
+<!--BUSCAR-->
+<form class="form-horizontal" action="{{ app.url_generator.generate('estacionBuscar') }}" method="post" >
+<fieldset>
+ <!--/.BUSCAR> 
+
+<!--PARÁMETRO-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Parámetro">Parámetro</label>
+  <div class="col-md-5">
+    <div class="input-group">
+      <input id="parametro" name="parametro" class="form-control" placeholder="NINGUNO" required="" type="text">
+      <!--<span class="input-group-addon">-->
+      <span class="input-group-btn">
+          <button class="btn btn-primary"  type="sumit">Buscar</button>
+      </span>
+    </div>      
+    <p class="help-block">Seleccione una opción de búsqueda e ingrese el parámetro a buscar</p>
+  </div>
+</div>
+<!--/.PARÁMETRO-->
+
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s">Buscar por:</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="radios-0">
+      <input name="radios" id="radios-0" value="nombre" checked="checked" type="radio">
+      Nombre de Usuario
+    </label>
+  </div>
+  <div class="radio">
+    <label for="radios-1">
+      <input name="radios" id="radios-1" value="usuario" type="radio">
+      Hostname
+    </label>
+  </div>
+  <div class="radio">
+    <label for="radios-2">
+      <input name="radios" id="radios-2" value="ip" type="radio">
+      Dirección IP
+    </label>
+  </div>
+  </div>
+</div>
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Busqueda Avanzada
+</button>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+
+<!--SELECT ESTATUS-->
+<div class="form-group">
+<label class="col-md-4 control-label" for="estatus">Estatus</label>  
+<div class="col-md-4">
+  <select  id="estatus" name="estatus" placeholder="" class="form-control input-md">
+    <option value="Todos">Todas</option>
+    <option value="Sin Asignar" >Sin Asignar</option>
+    <option value="Asignado">Asignado</option>
+  </select>
+<span class="help-block">Estatus del equipo en el inventario</span>  
+</div>
+</div>
+<!--/.SELECT ESTATUS-->
+
+<!--SELECT USUARIO EMPRESAS-->
+<div class="form-group">
+<label class="col-md-4 control-label" for="usuario_id_empresa">Empresa</label>  
+<div class="col-md-4">
+  <select  id="usuario_id_empresa" name="usuario_id_empresa" placeholder="" class="form-control input-md">
+    <option value="Todos">Todas</option>
+    {% for empresa_registro in empresas %}
+    <option value="{{ empresa_registro.id }}">{{ empresa_registro.nombre }}</option>
+    {% endfor %}
+  </select>
+<span class="help-block">Seleccione la Empresa que desea buscar</span>  
+</div>
+</div>
+<!--/.SELECT USUARIO EMPRESAS-->
+
+<!--/.SELECT USUARIO GERENCIA-->    
+<div class="form-group">
+<label class="col-md-4 control-label" for="usuario_id_gerencia">Gerencia</label>  
+<div class="col-md-4">
+  <select  id="usuario_id_gerencia" name="usuario_id_gerencia" placeholder="" class="form-control input-md">
+    <option value="Todos">Todas</option>          
+    {% for gerencia_registro in gerencias %}
+    <option value="{{ gerencia_registro.id }}">{{ gerencia_registro.nombre }}</option>
+    {% endfor %}
+  </select>
+<span class="help-block">Seleccione la Gerencia que desea buscar</span>  
+</div>
+</div>
+<!--/.SELECT USUARIO GERENCIA-->
+
+<!--SELECT USUARIO UBICACION-->
+<div class="form-group">
+<label class="col-md-4 control-label" for="usuario_id_ubicacion">Ubicación</label>  
+<div class="col-md-4">
+  <select  id="usuario_id_ubicacion" name="usuario_id_ubicacion" placeholder="" class="form-control input-md">
+    <option value="Todos">Todas</option>    
+    {% for ubicacion_registro in ubicaciones %}
+    <option value="{{ ubicacion_registro.id }}">{{ ubicacion_registro.nombre }}</option>
+    {% endfor %}
+  </select>
+<span class="help-block">Seleccione la Ubicación que desea buscar</span>  
+</div>
+</div>
+<!--/.SELECT USUARIO UBICACION-->
+
+<!--SELECT SISTEMA OPERATIVO-->
+<div class="form-group">
+<label class="col-md-4 control-label" for="software_id_sistema_operativo">Sistema Operativo</label>  
+<div class="col-md-4">
+    <select  id="software_id_sistema_operativo" name="software_id_sistema_operativo" placeholder="" class="form-control input-md">
+      <option value="Todos">Todas</option>
+      {% for sistema_operativo_registro in sistemas_operativos %}
+      <option value="{{ sistema_operativo_registro.id }}" >{{ sistema_operativo_registro.nombre }}</option>
+      {% endfor %}
+   </select>
+<span class="help-block">Sistema operativo que tiene instalado el equipo</span>  
+</div>
+</div>
+<!--/.SELECT SISTEMA OPERATIVO-->
+</div>
+  </div>
+
+
+</fieldset>
+</form>
+<!--/.BUSCAR-->
+
+{% endblock %}

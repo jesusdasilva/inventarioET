@@ -3,4 +3,3 @@ Cosas Por Hacer
 o Hacer que el formulario estaciones cuando regrese de un error mantenga los valores que tenia antes de guardar.
 o Validar que existan valores en las tablas catalogo antes de abrir el formulario estaciones.
 o Verificar con un formulario modal los campos obligatorios.
-o Incluir maxlength="10" en los campos del formulario
