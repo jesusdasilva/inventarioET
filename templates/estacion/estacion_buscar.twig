@@ -33,109 +33,52 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="s">Buscar por:</label>
   <div class="col-md-4">
+    <!--NOMBRE DE USUARIO-->
   <div class="radio">
     <label for="radios-0">
-      <input name="radios" id="radios-0" value="nombre" checked="checked" type="radio">
+      <input name="radios" id="radios-0" value="usuario_nombre" type="radio">
       Nombre de Usuario
     </label>
   </div>
+  <!--HOSTNAME-->
   <div class="radio">
     <label for="radios-1">
-      <input name="radios" id="radios-1" value="usuario" type="radio">
+      <input name="radios" id="radios-1" value="red_hostname" type="radio" checked>
       Hostname
     </label>
   </div>
+  <!--DIRECCIÓN IP-->
   <div class="radio">
     <label for="radios-2">
-      <input name="radios" id="radios-2" value="ip" type="radio">
+      <input name="radios" id="radios-2" value="red_ip" type="radio">
       Dirección IP
+    </label>
+  </div>
+  <!--EMPRESA-->
+  <div class="radio">
+    <label for="radios-3">
+      <input name="radios" id="radios-3" value="usuario_empresa" type="radio">
+      Empresa
     </label>
   </div>
   </div>
 </div>
 
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  Busqueda Avanzada
-</button>
-<div class="collapse" id="collapseExample">
-  <div class="well">
-
-<!--SELECT ESTATUS-->
+<!--CHECKBOX ESTATUS-->
 <div class="form-group">
-<label class="col-md-4 control-label" for="estatus">Estatus</label>  
-<div class="col-md-4">
-  <select  id="estatus" name="estatus" placeholder="" class="form-control input-md">
-    <option value="Todos">Todas</option>
-    <option value="Sin Asignar" >Sin Asignar</option>
-    <option value="Asignado">Asignado</option>
-  </select>
-<span class="help-block">Estatus del equipo en el inventario</span>  
-</div>
-</div>
-<!--/.SELECT ESTATUS-->
-
-<!--SELECT USUARIO EMPRESAS-->
-<div class="form-group">
-<label class="col-md-4 control-label" for="usuario_id_empresa">Empresa</label>  
-<div class="col-md-4">
-  <select  id="usuario_id_empresa" name="usuario_id_empresa" placeholder="" class="form-control input-md">
-    <option value="Todos">Todas</option>
-    {% for empresa_registro in empresas %}
-    <option value="{{ empresa_registro.id }}">{{ empresa_registro.nombre }}</option>
-    {% endfor %}
-  </select>
-<span class="help-block">Seleccione la Empresa que desea buscar</span>  
-</div>
-</div>
-<!--/.SELECT USUARIO EMPRESAS-->
-
-<!--/.SELECT USUARIO GERENCIA-->    
-<div class="form-group">
-<label class="col-md-4 control-label" for="usuario_id_gerencia">Gerencia</label>  
-<div class="col-md-4">
-  <select  id="usuario_id_gerencia" name="usuario_id_gerencia" placeholder="" class="form-control input-md">
-    <option value="Todos">Todas</option>          
-    {% for gerencia_registro in gerencias %}
-    <option value="{{ gerencia_registro.id }}">{{ gerencia_registro.nombre }}</option>
-    {% endfor %}
-  </select>
-<span class="help-block">Seleccione la Gerencia que desea buscar</span>  
-</div>
-</div>
-<!--/.SELECT USUARIO GERENCIA-->
-
-<!--SELECT USUARIO UBICACION-->
-<div class="form-group">
-<label class="col-md-4 control-label" for="usuario_id_ubicacion">Ubicación</label>  
-<div class="col-md-4">
-  <select  id="usuario_id_ubicacion" name="usuario_id_ubicacion" placeholder="" class="form-control input-md">
-    <option value="Todos">Todas</option>    
-    {% for ubicacion_registro in ubicaciones %}
-    <option value="{{ ubicacion_registro.id }}">{{ ubicacion_registro.nombre }}</option>
-    {% endfor %}
-  </select>
-<span class="help-block">Seleccione la Ubicación que desea buscar</span>  
-</div>
-</div>
-<!--/.SELECT USUARIO UBICACION-->
-
-<!--SELECT SISTEMA OPERATIVO-->
-<div class="form-group">
-<label class="col-md-4 control-label" for="software_id_sistema_operativo">Sistema Operativo</label>  
-<div class="col-md-4">
-    <select  id="software_id_sistema_operativo" name="software_id_sistema_operativo" placeholder="" class="form-control input-md">
-      <option value="Todos">Todas</option>
-      {% for sistema_operativo_registro in sistemas_operativos %}
-      <option value="{{ sistema_operativo_registro.id }}" >{{ sistema_operativo_registro.nombre }}</option>
-      {% endfor %}
-   </select>
-<span class="help-block">Sistema operativo que tiene instalado el equipo</span>  
-</div>
-</div>
-<!--/.SELECT SISTEMA OPERATIVO-->
-</div>
+  <label class="col-md-4 control-label" for="checkboxes">Estatus</label>
+  <div class="col-md-4">
+    <label class="checkbox-inline" for="checkboxes-0">
+      <input name="checkboxes" id="checkboxes-0" value="Sin Asignar" type="checkbox">
+      Sin Asignar
+    </label>
+    <label class="checkbox-inline" for="checkboxes-1">
+      <input name="checkboxes" id="checkboxes-1" value="Asignado" type="checkbox" checked >
+      Asignado
+    </label>
   </div>
-
+</div>
+<!--/.CHECKBOX ESTATUS-->
 
 </fieldset>
 </form>
