@@ -4,9 +4,6 @@
  *  ESTACION BUSCAR
  */
 
-
-
-
 //FORMULARIO BUSCAR
 $estacion->get('/estacion/buscar',function() use($app){
 
@@ -93,3 +90,23 @@ $estacion->get('/estacion/buscar/{id}',function($id) use($app){
     
 })
 ->bind('estacionBuscarID');
+
+//BUSCAR ID
+$estacion->post('/estacion/buscar',function($id) use($app){
+
+    try{
+
+
+    
+    } catch (Exception $e) {
+        
+        //MENSAJE
+        $app['session']->getFlashBag()->add('danger',array('message' => $e->getMessage()));
+        
+        //MOSTRAR MENSAJE ERROR
+        return $app['twig']->render('mensaje_error.twig');   
+        
+    }
+    
+})
+->bind('estacionBuscarPost');
