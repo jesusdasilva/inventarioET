@@ -9,7 +9,7 @@
 <!--/.NOMBRE DEL FORMULARIO-->
 
 <!--BUSCAR-->
-<form class="form-horizontal" action="{{ app.url_generator.generate('estacionBuscar') }}" method="post" >
+<form class="form-horizontal" action="{{ app.url_generator.generate('estacionListarPost') }}" method="post" >
 <fieldset>
  <!--/.BUSCAR> 
 
@@ -18,7 +18,7 @@
   <label class="col-md-4 control-label" for="Parámetro">Parámetro</label>
   <div class="col-md-5">
     <div class="input-group">
-      <input id="parametro" name="parametro" class="form-control" placeholder="NINGUNO" required="" type="text">
+      <input id="parametro" name="parametro" class="form-control" placeholder="NINGUNO" type="text">
       <!--<span class="input-group-addon">-->
       <span class="input-group-btn">
           <button class="btn btn-primary"  type="sumit">Buscar</button>
@@ -69,11 +69,11 @@
   <label class="col-md-4 control-label" for="checkboxes">Estatus</label>
   <div class="col-md-4">
     <label class="checkbox-inline" for="checkboxes-0">
-      <input name="checkboxes" id="checkboxes-0" value="Sin Asignar" type="checkbox">
+      <input name="checkboxes[]" id="checkboxes-0" value="Sin Asignar" type="checkbox">
       Sin Asignar
     </label>
     <label class="checkbox-inline" for="checkboxes-1">
-      <input name="checkboxes" id="checkboxes-1" value="Asignado" type="checkbox" checked >
+      <input name="checkboxes[]" id="checkboxes-1" value="Asignado" type="checkbox" checked >
       Asignado
     </label>
   </div>

@@ -4,6 +4,8 @@
  *  ESTACIÓN LISTAR
  */
 
+require_once 'estacion_listar_sql.inc.php';
+
 $estacion->get('/estacion/listar/{pagina}', function($pagina) use ($app) {
 
     try{
@@ -43,3 +45,50 @@ $estacion->get('/estacion/listar/{pagina}', function($pagina) use ($app) {
     
 })
 ->bind('estacionListar');
+
+
+$estacion->post('/estacion/listar', function() use ($app) {
+
+    try{
+    
+        //CALCULAR LAS PÁGINAS
+        $maximoRegistros = 5;
+        $sql = " SELECT count( * ) AS numero FROM estaciones "; 
+        $numeroRegistro = $app['db']->fetchColumn($sql, array());
+        $numeroPaginas = ceil($numeroRegistro / $maximoRegistros) -1;
+            
+        //DATOS DEL FORMULARIO
+        $parametro = $app['request']->get('parametro');
+        $buscarPor   = $app['request']->get('radios');
+        $estatus   =  $app['request']->get('checkboxes');
+
+        //SQL DE LOS REGISTROS DE LA PÁGINA
+        $sql = GenerarSql($parametro,$buscarPor,$estatus);
+        
+        //BUSCAR ESTACIÓN
+        $estaciones = $app['db']->fetchAll($sql, array());
+
+        $app['session']->getFlashBag()->add('danger',array('message' => $sql));
+
+        //ENVIAR DATOS A LA PLANTILLA
+        return $app['twig']->render('estacion/estacion_listado.twig',  
+                                    array('estaciones'     =>$estaciones, 
+                                          'numeroPaginas'  =>$numeroPaginas,
+                                          'pagina'         => 0,
+                                          'numeroRegistro' =>$numeroRegistro));
+        
+        
+
+    //CAPTURAR ERROR
+    }catch (Exception $e) {
+     
+        //MENSAJE
+        $app['session']->getFlashBag()->add('danger',array('message' => $e->getMessage()));
+        
+        //MOSTRAR MENSAJE ERROR
+        return $app['twig']->render('mensaje_error.twig');        
+        
+    }
+    
+})
+->bind('estacionListarPost');
