@@ -2,17 +2,7 @@
 
 <div class="container" style="padding: 5px;padding-top: 30px; ">
             
-    <!--TEXT INPUT RED IP-->
-    <div class="form-group">
-    <label class="col-md-4 control-label" for="red_ip">Dirección IP</label>  
-    <div class="col-md-4">
-        <input id="red_ip" name="red_ip" placeholder="" class="form-control input-md" type="text" {% if estacion.red_ip is defined %}value="{{ estacion.red_ip }}"{% endif %}>
-    <span class="help-block">Dirección IP del equipo</span>  
-    </div>
-    </div>
-    <!--/.TEXT INPUT RED IP-->
-
-    <!--TEXT INPUT RED HOSTNAME-->
+        <!--TEXT INPUT RED HOSTNAME-->
     <div class="form-group">
     <label class="col-md-4 control-label" for="red_hostname">Hostname</label>  
     <div class="col-md-4">
@@ -22,15 +12,25 @@
     </div>
     <!--/.TEXT INPUT RED HOSTNAME-->
 
-    <!--TEXT INPUT RED GATEWAY-->
+    <!--TEXT INPUT VLAN-->
     <div class="form-group">
-    <label class="col-md-4 control-label" for="red_gateway">Gateway de la Red</label>  
+    <label class="col-md-4 control-label" for="red_vlan">VLAN</label>  
     <div class="col-md-4">
-        <input id="red_gateway" name="red_gateway" placeholder="" class="form-control input-md" type="text" {% if estacion.red_gateway is defined %}value="{{ estacion.red_gateway}}"{% endif %}>
-    <span class="help-block">Gateway de la red donde esta conectado el equipo</span>  
+        <input id="red_vlan" name="red_vlan" placeholder="" class="form-control input-md" type="text" {% if estacion.red_vlan is defined %}value="{{ estacion.red_vlan }}"{% endif %}>
+    <span class="help-block">Nombre de la VLAN</span>  
     </div>
     </div>
-    <!--/.TEXT INPUT GATEWAY-->
+    <!--/.TEXT INPUT VLAN-->
+
+    <!--TEXT INPUT RED IP-->
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="red_ip">Dirección IP</label>  
+    <div class="col-md-4">
+        <input id="red_ip" name="red_ip" placeholder="" class="form-control input-md" type="text" {% if estacion.red_ip is defined %}value="{{ estacion.red_ip }}"{% endif %}>
+    <span class="help-block">Dirección IP del equipo</span>  
+    </div>
+    </div>
+    <!--/.TEXT INPUT RED IP-->
 
     <!--TEXT INPUT RED MASCARA-->
     <div class="form-group">
@@ -42,6 +42,16 @@
     </div>
     </div>
     <!--/.TEXT INPUT RED MASCARA-->
+
+    <!--TEXT INPUT RED GATEWAY-->
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="red_gateway">Gateway</label>  
+    <div class="col-md-4">
+        <input id="red_gateway" name="red_gateway" placeholder="" class="form-control input-md" type="text" {% if estacion.red_gateway is defined %}value="{{ estacion.red_gateway}}"{% endif %}>
+    <span class="help-block">Gateway de la red donde esta conectado el equipo</span>  
+    </div>
+    </div>
+    <!--/.TEXT INPUT GATEWAY-->
 
     <!--TEXT INPUT MAC-->
     <div class="form-group">

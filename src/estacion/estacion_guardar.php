@@ -39,8 +39,9 @@ $estacion->post('/estacion/guardar', function() use ($app) {
             'video_marca_modelo'=>$app['request']->get('video_marca_modelo'),
             'video_cantidad'    =>$app['request']->get('video_cantidad'),
             //RED
-            'red_ip'      =>$app['request']->get('red_ip'),
             'red_hostname'=>$app['request']->get('red_hostname'),
+            'red_ip'      =>$app['request']->get('red_ip'),
+            'red_vlan'      =>$app['request']->get('red_vlan'),
             'red_gateway' =>$app['request']->get('red_gateway'),
             'red_mascara' =>$app['request']->get('red_mascara'),
             'red_mac'     =>$app['request']->get('red_mac'),
