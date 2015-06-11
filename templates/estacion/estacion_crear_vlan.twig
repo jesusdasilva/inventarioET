@@ -1,8 +1,10 @@
+{# FORMULARIO ESTACIÓN CREAR VLAN #}
+
 {% extends "layout.twig" %}
 
 {% block contenido %}
 
-<form class="form-horizontal" action="{{ app.url_generator.generate('crear_vlan') }}" method="post">
+<form class="form-horizontal" action="{{ app.url_generator.generate('estacionCrearVlanPost') }}" method="post">
 <fieldset>
 
     <!--NOMBRE DEL FORMULARIO-->
@@ -18,7 +20,7 @@
         </div>
     </div>
     <!--/.TEXT INPUT PREFIJO HOSTNAME-->
-    
+
     <!--TEXT INPUT RED VLAN-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="red_vlan">VLAN</label>  

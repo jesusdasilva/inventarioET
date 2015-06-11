@@ -13,7 +13,7 @@ $empresa->post('/empresa/guardar', function() use ($app) {
                          'observacion'=> $app['request']->get('observacion'));
     
         //BUSCAR NOMBRE DE EMPRESA
-        $buscarSql = " SELECT * FROM empresas WHERE nombre = ? ";
+        $buscarSql = " SELECT * FROM vista_empresas WHERE nombre = ? ";
         $nombreEncontrado = $app['db']->fetchAssoc($buscarSql, array($empresa['nombre']));
     
         //VERIFICAR QUE NO ESTE REPETIDA

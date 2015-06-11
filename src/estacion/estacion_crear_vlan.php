@@ -6,11 +6,10 @@
 //INCLUIR LA CLASE PARE CALCULAR LA VLAN
 require_once 'estacion_crear_vlan_calcular.inc.php';
 
-
 //CREAR VLAN GET
 $estacion->get('/estacion/crear_vlan', function() use ($app) {
 
-    return $app['twig']->render('crear_vlan.twig');
+    return $app['twig']->render('estacion/estacion_crear_vlan.twig');
 
 })
 ->bind('estacionCrearVlan');
@@ -40,14 +39,12 @@ $estacion->post('/estacion/crear_vlan', function() use ($app) {
 
     //GENERAR INFORMACION DE LAS ESTACIONES
     $estaciones = calcularVlan::generaEstacion($nombres_estaciones,
-                                   $ips_estaciones,
-                                   'Libre',
-                                   'Libre',
-                                   $vlan['vlan'],
-                                   $vlan['red'],
-                                   $vlan['mascara'],                       
-                                   $vlan['broadcast'],
-                                   $vlan['gateway']);
+                                               $ips_estaciones,
+                                               $vlan['vlan'],
+                                               $vlan['red'],
+                                               $vlan['mascara'],                       
+                                               $vlan['broadcast'],
+                                               $vlan['gateway']);
     
     //AGREGAR A LA BD LA INFORMACIÓN DE LAS ESTACIONES A LA BD
     foreach($estaciones as $estacion){

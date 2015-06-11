@@ -65,24 +65,20 @@ class calcularVlan{
     }
     
     //GENERAR INFORMACIÓN DE LAS ESTACIONES
-    public static function generaEstacion($estaciones_nombres,$estaciones_ips,$usuario_nombre,$usuario_indicador,
-            $vlan_nombre,$vlan_red,$vlan_mascara,$vlan_broadcast,$vlan_gateway){
+    public static function generaEstacion($estaciones_nombres,$estaciones_ips,$vlan_nombre,$vlan_nombre,
+        $vlan_mascara,$vlan_gateway){
         
         //VARIABLES
         $estaciones=array();
         
         foreach(array_combine($estaciones_nombres,$estaciones_ips) as $estacion_nombre => $estacion_ip){
             
-            $estaciones [] = array( 'estatus'           => 'Sin Asignar',
-                                    'estacion_nombre'   => $estacion_nombre,
-                                    'estacion_ip'       => $estacion_ip,
-                                    'usuario_nombre'    => $usuario_nombre,
-                                    'usuario_indicador' => $usuario_indicador,
-                                    'vlan_nombre'       => $vlan_nombre,
-                                    'vlan_red'          => $vlan_red,
-                                    'vlan_mascara'      => $vlan_mascara,
-                                    'vlan_broadcast'    => $vlan_broadcast,
-                                    'vlan_gateway'      => $vlan_gateway );
+            $estaciones [] = array( 'estatus'      => 'Sin Asignar',
+                                    'red_hostname' => $estacion_nombre,
+                                    'red_ip'       => $estacion_ip,
+                                    'red_vlan'     => $vlan_nombre,
+                                    'red_mascara'  => $vlan_mascara,
+                                    'red_gateway'  => $vlan_gateway );
         }
         
         return $estaciones;        

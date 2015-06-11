@@ -9,7 +9,7 @@ $empresa->get('/empresa/buscar/{id}',function($id) use($app){
     try{
 
         //SQL
-        $sql = 'SELECT * FROM empresas WHERE id = ? ';	
+        $sql = 'SELECT * FROM vista_empresas WHERE id = ? ';	
 
         //BUSCAR ID
         $empresa = $app['db']->fetchAssoc($sql, array($id));
