@@ -9,7 +9,7 @@ $marca->get('/marca/buscar/{id}',function($id) use($app){
     try{
 
         //SQL
-        $sql = 'SELECT * FROM marcas WHERE id = ? ';	
+        $sql = 'SELECT * FROM vista_marcas WHERE id = ? ';	
 
         //BUSCAR ID
         $marca = $app['db']->fetchAssoc($sql, array($id));

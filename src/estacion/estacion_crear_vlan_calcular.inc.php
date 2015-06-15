@@ -74,11 +74,16 @@ class calcularVlan{
         foreach(array_combine($estaciones_nombres,$estaciones_ips) as $estacion_nombre => $estacion_ip){
             
             $estaciones [] = array( 'estatus'      => 'Sin Asignar',
+                                    'usuario_id_empresa' =>01,
+                                    'usuario_id_gerencia'=>01,
+                                    'usuario_id_ubicacion'=>01,
+                                    'equipo_id_marca'=>01, 
                                     'red_hostname' => $estacion_nombre,
                                     'red_ip'       => $estacion_ip,
                                     'red_vlan'     => $vlan_nombre,
                                     'red_mascara'  => $vlan_mascara,
-                                    'red_gateway'  => $vlan_gateway );
+                                    'red_gateway'  => $vlan_gateway,
+                                    'software_id_sistema_operativo'=>01 );
         }
         
         return $estaciones;        

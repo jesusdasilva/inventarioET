@@ -9,7 +9,7 @@ $gerencia->get('/gerencia/buscar/{id}',function($id) use($app){
     try{
 
         //SQL
-        $sql = 'SELECT * FROM gerencias WHERE id = ? ';	
+        $sql = 'SELECT * FROM vista_gerencias WHERE id = ? ';	
 
         //BUSCAR ID
         $gerencia = $app['db']->fetchAssoc($sql, array($id));

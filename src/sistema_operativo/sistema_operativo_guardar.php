@@ -13,7 +13,7 @@ $sistemaOperativo->post('/sistemaOperativo/guardar', function() use ($app) {
                                   'observacion'=> $app['request']->get('observacion'));
     
         //BUSCAR NOMBRE DE SISTEMA OPERATIVO
-        $buscarSql = " SELECT * FROM sistemas_operativos WHERE nombre = ? ";
+        $buscarSql = " SELECT * FROM vista_sistemas_operativos WHERE nombre = ? ";
         $nombreEncontrado = $app['db']->fetchAssoc($buscarSql, array($sistemaOperativo['nombre']));
     
         //VERIFICAR QUE NO ESTE REPETIDA

@@ -10,14 +10,14 @@ $ubicacion->get('/ubicacion/listar/{pagina}', function($pagina) use ($app) {
     
         //CALCULAR LAS PÁGINAS
         $maximoRegistros = 5;
-        $sql = " SELECT count( * ) AS numero FROM ubicaciones "; 
+        $sql = " SELECT count( * ) AS numero FROM vista_ubicaciones "; 
         $numeroRegistro = $app['db']->fetchColumn($sql, array());
         $numeroPaginas = ceil($numeroRegistro / $maximoRegistros) -1;
             
         //SQL DE LOS REGISTROS DE LA PÁGINA
         $offset =  $pagina * 5;
         $sql  = " SELECT * ";
-        $sql .= " FROM ubicaciones ";
+        $sql .= " FROM vista_ubicaciones ";
         $sql .= " ORDER BY nombre ";
         $sql .= " OFFSET $offset LIMIT 5";
         

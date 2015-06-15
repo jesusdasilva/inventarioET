@@ -10,14 +10,14 @@ $gerencia->get('/gerencia/listar/{pagina}', function($pagina) use ($app) {
     
         //CALCULAR LAS PÁGINAS
         $maximoRegistros = 5;
-        $sql = " SELECT count( * ) AS numero FROM gerencias "; 
+        $sql = " SELECT count( * ) AS numero FROM vista_gerencias "; 
         $numeroRegistro = $app['db']->fetchColumn($sql, array());
         $numeroPaginas = ceil($numeroRegistro / $maximoRegistros) -1;
             
         //SQL DE LOS REGISTROS DE LA PÁGINA
         $offset =  $pagina * 5;
         $sql  = " SELECT * ";
-        $sql .= " FROM gerencias ";
+        $sql .= " FROM vista_gerencias ";
         $sql .= " ORDER BY nombre ";
         $sql .= " OFFSET $offset LIMIT 5";
         
@@ -27,8 +27,8 @@ $gerencia->get('/gerencia/listar/{pagina}', function($pagina) use ($app) {
         //MOSTRAR DATOS
         return $app['twig']->render('gerencia/gerencia_listado.twig',  
                                     array('gerencias'      => $gerencias, 
-                                          'numeroPaginas'  =>$numeroPaginas,
-                                          'pagina'         =>$pagina,
+                                          'numeroPaginas'  => $numeroPaginas,
+                                          'pagina'         => $pagina,
                                           'numeroRegistro' => $numeroRegistro));
     //CAPTURAR ERROR
     }catch (Exception $e) {

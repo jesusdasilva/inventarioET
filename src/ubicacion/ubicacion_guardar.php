@@ -13,7 +13,7 @@ $ubicacion->post('/ubicacion/guardar', function() use ($app) {
                            'observacion'=> $app['request']->get('observacion'));
     
         //BUSCAR NOMBRE DE UBICACION
-        $buscarSql = " SELECT * FROM ubicaciones WHERE nombre = ? ";
+        $buscarSql = " SELECT * FROM vista_ubicaciones WHERE nombre = ? ";
         $nombreEncontrado = $app['db']->fetchAssoc($buscarSql, array($ubicacion['nombre']));
     
         //VERIFICAR QUE NO ESTE REPETIDA

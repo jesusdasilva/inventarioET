@@ -9,11 +9,11 @@ $marca->post('/marca/guardar', function() use ($app) {
     try{
         
         //DATOS DEL FORMULARIO
-        $marca = array('nombre'     => mb_strtoupper($app['request']->get('nombre'),'utf-8'),
+        $marca = array('nombre'       => mb_strtoupper($app['request']->get('nombre'),'utf-8'),
                          'observacion'=> $app['request']->get('observacion'));
     
         //BUSCAR NOMBRE DE MARCA
-        $buscarSql = " SELECT * FROM marcas WHERE nombre = ? ";
+        $buscarSql = " SELECT * FROM vista_marcas WHERE nombre = ? ";
         $nombreEncontrado = $app['db']->fetchAssoc($buscarSql, array($marca['nombre']));
     
         //VERIFICAR QUE NO ESTE REPETIDA

@@ -10,10 +10,10 @@ $gerencia->post('/gerencia/guardar', function() use ($app) {
         
         //DATOS DEL FORMULARIO
         $gerencia = array('nombre'     => mb_strtoupper($app['request']->get('nombre'),'utf-8'),
-                         'observacion'=> $app['request']->get('observacion'));
+                          'observacion'=> $app['request']->get('observacion'));
     
         //BUSCAR NOMBRE
-        $buscarSql = " SELECT * FROM gerencias WHERE nombre = ? ";
+        $buscarSql = " SELECT * FROM vista_gerencias WHERE nombre = ? ";
         $nombreEncontrado = $app['db']->fetchAssoc($buscarSql, array($gerencia['nombre']));
     
         //VERIFICAR QUE NO ESTE REPETIDO

@@ -9,7 +9,7 @@ $ubicacion->get('/ubicacion/buscar/{id}',function($id) use($app){
     try{
 
         //SQL
-        $sql = 'SELECT * FROM ubicaciones WHERE id = ? ';	
+        $sql = 'SELECT * FROM vista_ubicaciones WHERE id = ? ';	
 
         //BUSCAR ID
         $ubicacion = $app['db']->fetchAssoc($sql, array($id));

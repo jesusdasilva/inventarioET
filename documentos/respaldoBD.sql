@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.1.14
 -- Dumped by pg_dump version 9.1.14
--- Started on 2015-05-20 19:44:29 VET
+-- Started on 2015-06-15 10:02:33 VET
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -13,7 +13,7 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 173 (class 3079 OID 11645)
+-- TOC entry 179 (class 3079 OID 11645)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -21,29 +21,46 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 1939 (class 0 OID 0)
--- Dependencies: 173
+-- TOC entry 1965 (class 0 OID 0)
+-- Dependencies: 179
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- TOC entry 178 (class 3079 OID 16791)
+-- Name: adminpack; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1966 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
+
+
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 494 (class 1247 OID 16386)
+-- TOC entry 500 (class 1247 OID 16386)
 -- Dependencies: 5
 -- Name: nombre_corto; Type: DOMAIN; Schema: public; Owner: inventario
 --
 
-CREATE DOMAIN nombre_corto AS character varying(20) NOT NULL;
+CREATE DOMAIN nombre_corto AS character varying(30) NOT NULL;
 
 
 ALTER DOMAIN public.nombre_corto OWNER TO inventario;
 
 --
--- TOC entry 495 (class 1247 OID 16387)
+-- TOC entry 501 (class 1247 OID 16387)
 -- Dependencies: 5
 -- Name: nombre_largo; Type: DOMAIN; Schema: public; Owner: inventario
 --
@@ -54,12 +71,12 @@ CREATE DOMAIN nombre_largo AS character varying(50) NOT NULL;
 ALTER DOMAIN public.nombre_largo OWNER TO inventario;
 
 --
--- TOC entry 496 (class 1247 OID 16388)
+-- TOC entry 502 (class 1247 OID 16388)
 -- Dependencies: 5
 -- Name: observacion_corta; Type: DOMAIN; Schema: public; Owner: inventario
 --
 
-CREATE DOMAIN observacion_corta AS character varying(100);
+CREATE DOMAIN observacion_corta AS character varying(200);
 
 
 ALTER DOMAIN public.observacion_corta OWNER TO inventario;
@@ -70,7 +87,7 @@ SET default_with_oids = false;
 
 --
 -- TOC entry 162 (class 1259 OID 16391)
--- Dependencies: 5 494 496
+-- Dependencies: 500 5 502
 -- Name: empresas; Type: TABLE; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -84,7 +101,7 @@ CREATE TABLE empresas (
 ALTER TABLE public.empresas OWNER TO inventario;
 
 --
--- TOC entry 1940 (class 0 OID 0)
+-- TOC entry 1967 (class 0 OID 0)
 -- Dependencies: 162
 -- Name: TABLE empresas; Type: COMMENT; Schema: public; Owner: inventario
 --
@@ -94,7 +111,7 @@ COMMENT ON TABLE empresas IS 'Tabla catálogo de empresas';
 
 --
 -- TOC entry 161 (class 1259 OID 16389)
--- Dependencies: 162 5
+-- Dependencies: 5 162
 -- Name: empresas_id_seq; Type: SEQUENCE; Schema: public; Owner: inventario
 --
 
@@ -109,7 +126,7 @@ CREATE SEQUENCE empresas_id_seq
 ALTER TABLE public.empresas_id_seq OWNER TO inventario;
 
 --
--- TOC entry 1941 (class 0 OID 0)
+-- TOC entry 1968 (class 0 OID 0)
 -- Dependencies: 161
 -- Name: empresas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: inventario
 --
@@ -118,8 +135,8 @@ ALTER SEQUENCE empresas_id_seq OWNED BY empresas.id;
 
 
 --
--- TOC entry 172 (class 1259 OID 16669)
--- Dependencies: 495 494 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 495 496 5
+-- TOC entry 172 (class 1259 OID 16731)
+-- Dependencies: 501 5 502 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 501 500
 -- Name: estaciones; Type: TABLE; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -147,8 +164,9 @@ CREATE TABLE estaciones (
     video_memoria nombre_largo,
     video_marca_modelo nombre_largo,
     video_cantidad nombre_largo,
-    red_ip nombre_largo,
     red_hostname nombre_largo,
+    red_vlan nombre_largo,
+    red_ip nombre_largo,
     red_gateway nombre_largo,
     red_mascara nombre_largo,
     red_mac nombre_largo,
@@ -164,7 +182,7 @@ CREATE TABLE estaciones (
 ALTER TABLE public.estaciones OWNER TO inventario;
 
 --
--- TOC entry 171 (class 1259 OID 16667)
+-- TOC entry 171 (class 1259 OID 16729)
 -- Dependencies: 172 5
 -- Name: estaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: inventario
 --
@@ -180,7 +198,7 @@ CREATE SEQUENCE estaciones_id_seq
 ALTER TABLE public.estaciones_id_seq OWNER TO inventario;
 
 --
--- TOC entry 1942 (class 0 OID 0)
+-- TOC entry 1969 (class 0 OID 0)
 -- Dependencies: 171
 -- Name: estaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: inventario
 --
@@ -190,7 +208,7 @@ ALTER SEQUENCE estaciones_id_seq OWNED BY estaciones.id;
 
 --
 -- TOC entry 164 (class 1259 OID 16402)
--- Dependencies: 494 496 5
+-- Dependencies: 5 502 500
 -- Name: gerencias; Type: TABLE; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -204,7 +222,7 @@ CREATE TABLE gerencias (
 ALTER TABLE public.gerencias OWNER TO inventario;
 
 --
--- TOC entry 1943 (class 0 OID 0)
+-- TOC entry 1970 (class 0 OID 0)
 -- Dependencies: 164
 -- Name: TABLE gerencias; Type: COMMENT; Schema: public; Owner: inventario
 --
@@ -229,7 +247,7 @@ CREATE SEQUENCE gerencias_id_seq
 ALTER TABLE public.gerencias_id_seq OWNER TO inventario;
 
 --
--- TOC entry 1944 (class 0 OID 0)
+-- TOC entry 1971 (class 0 OID 0)
 -- Dependencies: 163
 -- Name: gerencias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: inventario
 --
@@ -239,7 +257,7 @@ ALTER SEQUENCE gerencias_id_seq OWNED BY gerencias.id;
 
 --
 -- TOC entry 166 (class 1259 OID 16413)
--- Dependencies: 496 5 494
+-- Dependencies: 502 500 5
 -- Name: marcas; Type: TABLE; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -253,7 +271,7 @@ CREATE TABLE marcas (
 ALTER TABLE public.marcas OWNER TO inventario;
 
 --
--- TOC entry 1945 (class 0 OID 0)
+-- TOC entry 1972 (class 0 OID 0)
 -- Dependencies: 166
 -- Name: TABLE marcas; Type: COMMENT; Schema: public; Owner: inventario
 --
@@ -278,7 +296,7 @@ CREATE SEQUENCE marcas_id_seq
 ALTER TABLE public.marcas_id_seq OWNER TO inventario;
 
 --
--- TOC entry 1946 (class 0 OID 0)
+-- TOC entry 1973 (class 0 OID 0)
 -- Dependencies: 165
 -- Name: marcas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: inventario
 --
@@ -288,7 +306,7 @@ ALTER SEQUENCE marcas_id_seq OWNED BY marcas.id;
 
 --
 -- TOC entry 168 (class 1259 OID 16424)
--- Dependencies: 5 494 496
+-- Dependencies: 5 500 502
 -- Name: sistemas_operativos; Type: TABLE; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -302,7 +320,7 @@ CREATE TABLE sistemas_operativos (
 ALTER TABLE public.sistemas_operativos OWNER TO inventario;
 
 --
--- TOC entry 1947 (class 0 OID 0)
+-- TOC entry 1974 (class 0 OID 0)
 -- Dependencies: 168
 -- Name: TABLE sistemas_operativos; Type: COMMENT; Schema: public; Owner: inventario
 --
@@ -327,7 +345,7 @@ CREATE SEQUENCE sistemas_operativos_id_seq
 ALTER TABLE public.sistemas_operativos_id_seq OWNER TO inventario;
 
 --
--- TOC entry 1948 (class 0 OID 0)
+-- TOC entry 1975 (class 0 OID 0)
 -- Dependencies: 167
 -- Name: sistemas_operativos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: inventario
 --
@@ -337,7 +355,7 @@ ALTER SEQUENCE sistemas_operativos_id_seq OWNED BY sistemas_operativos.id;
 
 --
 -- TOC entry 170 (class 1259 OID 16435)
--- Dependencies: 5 495 496
+-- Dependencies: 502 5 501
 -- Name: ubicaciones; Type: TABLE; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -351,7 +369,7 @@ CREATE TABLE ubicaciones (
 ALTER TABLE public.ubicaciones OWNER TO inventario;
 
 --
--- TOC entry 1949 (class 0 OID 0)
+-- TOC entry 1976 (class 0 OID 0)
 -- Dependencies: 170
 -- Name: TABLE ubicaciones; Type: COMMENT; Schema: public; Owner: inventario
 --
@@ -361,7 +379,7 @@ COMMENT ON TABLE ubicaciones IS 'Tabla catálogo de ubicaciones';
 
 --
 -- TOC entry 169 (class 1259 OID 16433)
--- Dependencies: 5 170
+-- Dependencies: 170 5
 -- Name: ubicaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: inventario
 --
 
@@ -376,7 +394,7 @@ CREATE SEQUENCE ubicaciones_id_seq
 ALTER TABLE public.ubicaciones_id_seq OWNER TO inventario;
 
 --
--- TOC entry 1950 (class 0 OID 0)
+-- TOC entry 1977 (class 0 OID 0)
 -- Dependencies: 169
 -- Name: ubicaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: inventario
 --
@@ -385,7 +403,67 @@ ALTER SEQUENCE ubicaciones_id_seq OWNED BY ubicaciones.id;
 
 
 --
--- TOC entry 1790 (class 2604 OID 16394)
+-- TOC entry 173 (class 1259 OID 16771)
+-- Dependencies: 1941 500 5 502
+-- Name: vista_empresas; Type: VIEW; Schema: public; Owner: inventario
+--
+
+CREATE VIEW vista_empresas AS
+    SELECT empresas.id, empresas.nombre, empresas.observacion FROM empresas WHERE (empresas.id <> 1);
+
+
+ALTER TABLE public.vista_empresas OWNER TO inventario;
+
+--
+-- TOC entry 174 (class 1259 OID 16775)
+-- Dependencies: 1942 5 502 500
+-- Name: vista_gerencias; Type: VIEW; Schema: public; Owner: inventario
+--
+
+CREATE VIEW vista_gerencias AS
+    SELECT gerencias.id, gerencias.nombre, gerencias.observacion FROM gerencias WHERE (gerencias.id <> 1);
+
+
+ALTER TABLE public.vista_gerencias OWNER TO inventario;
+
+--
+-- TOC entry 176 (class 1259 OID 16783)
+-- Dependencies: 1944 5 502 500
+-- Name: vista_marcas; Type: VIEW; Schema: public; Owner: inventario
+--
+
+CREATE VIEW vista_marcas AS
+    SELECT marcas.id, marcas.nombre, marcas.observacion FROM marcas WHERE (marcas.id <> 1);
+
+
+ALTER TABLE public.vista_marcas OWNER TO inventario;
+
+--
+-- TOC entry 177 (class 1259 OID 16787)
+-- Dependencies: 1945 502 5 500
+-- Name: vista_sistemas_operativos; Type: VIEW; Schema: public; Owner: inventario
+--
+
+CREATE VIEW vista_sistemas_operativos AS
+    SELECT sistemas_operativos.id, sistemas_operativos.nombre, sistemas_operativos.observacion FROM sistemas_operativos WHERE (sistemas_operativos.id <> 1);
+
+
+ALTER TABLE public.vista_sistemas_operativos OWNER TO inventario;
+
+--
+-- TOC entry 175 (class 1259 OID 16779)
+-- Dependencies: 1943 5 501 502
+-- Name: vista_ubicaciones; Type: VIEW; Schema: public; Owner: inventario
+--
+
+CREATE VIEW vista_ubicaciones AS
+    SELECT ubicaciones.id, ubicaciones.nombre, ubicaciones.observacion FROM ubicaciones WHERE (ubicaciones.id <> 1);
+
+
+ALTER TABLE public.vista_ubicaciones OWNER TO inventario;
+
+--
+-- TOC entry 1811 (class 2604 OID 16394)
 -- Dependencies: 161 162 162
 -- Name: id; Type: DEFAULT; Schema: public; Owner: inventario
 --
@@ -394,8 +472,8 @@ ALTER TABLE ONLY empresas ALTER COLUMN id SET DEFAULT nextval('empresas_id_seq':
 
 
 --
--- TOC entry 1795 (class 2604 OID 16672)
--- Dependencies: 172 171 172
+-- TOC entry 1816 (class 2604 OID 16734)
+-- Dependencies: 171 172 172
 -- Name: id; Type: DEFAULT; Schema: public; Owner: inventario
 --
 
@@ -403,8 +481,8 @@ ALTER TABLE ONLY estaciones ALTER COLUMN id SET DEFAULT nextval('estaciones_id_s
 
 
 --
--- TOC entry 1791 (class 2604 OID 16405)
--- Dependencies: 163 164 164
+-- TOC entry 1812 (class 2604 OID 16405)
+-- Dependencies: 164 163 164
 -- Name: id; Type: DEFAULT; Schema: public; Owner: inventario
 --
 
@@ -412,7 +490,7 @@ ALTER TABLE ONLY gerencias ALTER COLUMN id SET DEFAULT nextval('gerencias_id_seq
 
 
 --
--- TOC entry 1792 (class 2604 OID 16416)
+-- TOC entry 1813 (class 2604 OID 16416)
 -- Dependencies: 166 165 166
 -- Name: id; Type: DEFAULT; Schema: public; Owner: inventario
 --
@@ -421,7 +499,7 @@ ALTER TABLE ONLY marcas ALTER COLUMN id SET DEFAULT nextval('marcas_id_seq'::reg
 
 
 --
--- TOC entry 1793 (class 2604 OID 16427)
+-- TOC entry 1814 (class 2604 OID 16427)
 -- Dependencies: 168 167 168
 -- Name: id; Type: DEFAULT; Schema: public; Owner: inventario
 --
@@ -430,8 +508,8 @@ ALTER TABLE ONLY sistemas_operativos ALTER COLUMN id SET DEFAULT nextval('sistem
 
 
 --
--- TOC entry 1794 (class 2604 OID 16438)
--- Dependencies: 170 169 170
+-- TOC entry 1815 (class 2604 OID 16438)
+-- Dependencies: 169 170 170
 -- Name: id; Type: DEFAULT; Schema: public; Owner: inventario
 --
 
@@ -439,58 +517,57 @@ ALTER TABLE ONLY ubicaciones ALTER COLUMN id SET DEFAULT nextval('ubicaciones_id
 
 
 --
--- TOC entry 1921 (class 0 OID 16391)
--- Dependencies: 162 1932
+-- TOC entry 1947 (class 0 OID 16391)
+-- Dependencies: 162 1958
 -- Data for Name: empresas; Type: TABLE DATA; Schema: public; Owner: inventario
 --
 
 COPY empresas (id, nombre, observacion) FROM stdin;
-1	PETROMONAGAS	
+1	NADA	SIN ASIGNACIÓN
 \.
 
 
 --
--- TOC entry 1951 (class 0 OID 0)
+-- TOC entry 1978 (class 0 OID 0)
 -- Dependencies: 161
 -- Name: empresas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: inventario
 --
 
-SELECT pg_catalog.setval('empresas_id_seq', 1, true);
+SELECT pg_catalog.setval('empresas_id_seq', 7, true);
 
 
 --
--- TOC entry 1931 (class 0 OID 16669)
--- Dependencies: 172 1932
+-- TOC entry 1957 (class 0 OID 16731)
+-- Dependencies: 172 1958
 -- Data for Name: estaciones; Type: TABLE DATA; Schema: public; Owner: inventario
 --
 
-COPY estaciones (id, estatus, usuario_nombre, usuario_indicador, usuario_id_empresa, usuario_id_gerencia, usuario_id_ubicacion, equipo_id_marca, equipo_serial, equipo_etiqueta_pdvsa, almacenamiento_ram, almacenamiento_dd, almacenamiento_dd_cantidad, procesador_marca_modelo, procesador_velocidad, procesador_cantidad, monitor_marca_modelo, "monitor_tamaño", monitor_cantidad, video_integrada, video_memoria, video_marca_modelo, video_cantidad, red_ip, red_hostname, red_gateway, red_mascara, red_mac, energia_dispositivo, energia_estado, energia_marca_modelo, software_id_sistema_operativo, software_aplicaciones, observacion) FROM stdin;
+COPY estaciones (id, estatus, usuario_nombre, usuario_indicador, usuario_id_empresa, usuario_id_gerencia, usuario_id_ubicacion, equipo_id_marca, equipo_serial, equipo_etiqueta_pdvsa, almacenamiento_ram, almacenamiento_dd, almacenamiento_dd_cantidad, procesador_marca_modelo, procesador_velocidad, procesador_cantidad, monitor_marca_modelo, "monitor_tamaño", monitor_cantidad, video_integrada, video_memoria, video_marca_modelo, video_cantidad, red_hostname, red_vlan, red_ip, red_gateway, red_mascara, red_mac, energia_dispositivo, energia_estado, energia_marca_modelo, software_id_sistema_operativo, software_aplicaciones, observacion) FROM stdin;
 \.
 
 
 --
--- TOC entry 1952 (class 0 OID 0)
+-- TOC entry 1979 (class 0 OID 0)
 -- Dependencies: 171
 -- Name: estaciones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: inventario
 --
 
-SELECT pg_catalog.setval('estaciones_id_seq', 1, false);
+SELECT pg_catalog.setval('estaciones_id_seq', 2, true);
 
 
 --
--- TOC entry 1923 (class 0 OID 16402)
--- Dependencies: 164 1932
+-- TOC entry 1949 (class 0 OID 16402)
+-- Dependencies: 164 1958
 -- Data for Name: gerencias; Type: TABLE DATA; Schema: public; Owner: inventario
 --
 
 COPY gerencias (id, nombre, observacion) FROM stdin;
-1	ESTUDIOS INTEGRADOS	
-2	YACIMIENTOS	
+1	NADA	\N
 \.
 
 
 --
--- TOC entry 1953 (class 0 OID 0)
+-- TOC entry 1980 (class 0 OID 0)
 -- Dependencies: 163
 -- Name: gerencias_id_seq; Type: SEQUENCE SET; Schema: public; Owner: inventario
 --
@@ -499,57 +576,58 @@ SELECT pg_catalog.setval('gerencias_id_seq', 2, true);
 
 
 --
--- TOC entry 1925 (class 0 OID 16413)
--- Dependencies: 166 1932
+-- TOC entry 1951 (class 0 OID 16413)
+-- Dependencies: 166 1958
 -- Data for Name: marcas; Type: TABLE DATA; Schema: public; Owner: inventario
 --
 
 COPY marcas (id, nombre, observacion) FROM stdin;
+1	NADA	\N
 \.
 
 
 --
--- TOC entry 1954 (class 0 OID 0)
+-- TOC entry 1981 (class 0 OID 0)
 -- Dependencies: 165
 -- Name: marcas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: inventario
 --
 
-SELECT pg_catalog.setval('marcas_id_seq', 1, false);
+SELECT pg_catalog.setval('marcas_id_seq', 2, true);
 
 
 --
--- TOC entry 1927 (class 0 OID 16424)
--- Dependencies: 168 1932
+-- TOC entry 1953 (class 0 OID 16424)
+-- Dependencies: 168 1958
 -- Data for Name: sistemas_operativos; Type: TABLE DATA; Schema: public; Owner: inventario
 --
 
 COPY sistemas_operativos (id, nombre, observacion) FROM stdin;
+1	NADA	\N
 \.
 
 
 --
--- TOC entry 1955 (class 0 OID 0)
+-- TOC entry 1982 (class 0 OID 0)
 -- Dependencies: 167
 -- Name: sistemas_operativos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: inventario
 --
 
-SELECT pg_catalog.setval('sistemas_operativos_id_seq', 1, false);
+SELECT pg_catalog.setval('sistemas_operativos_id_seq', 2, true);
 
 
 --
--- TOC entry 1929 (class 0 OID 16435)
--- Dependencies: 170 1932
+-- TOC entry 1955 (class 0 OID 16435)
+-- Dependencies: 170 1958
 -- Data for Name: ubicaciones; Type: TABLE DATA; Schema: public; Owner: inventario
 --
 
 COPY ubicaciones (id, nombre, observacion) FROM stdin;
-1	CBP PISO 1 SALA TÉCNICA	Estudios integrados se encuentra en esa sala.
-2	CBP PISO 1 ALA SUR	
+1	NADA	\N
 \.
 
 
 --
--- TOC entry 1956 (class 0 OID 0)
+-- TOC entry 1983 (class 0 OID 0)
 -- Dependencies: 169
 -- Name: ubicaciones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: inventario
 --
@@ -558,8 +636,8 @@ SELECT pg_catalog.setval('ubicaciones_id_seq', 2, true);
 
 
 --
--- TOC entry 1797 (class 2606 OID 16399)
--- Dependencies: 162 162 1933
+-- TOC entry 1818 (class 2606 OID 16399)
+-- Dependencies: 162 162 1959
 -- Name: empresas_pkey; Type: CONSTRAINT; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -568,8 +646,8 @@ ALTER TABLE ONLY empresas
 
 
 --
--- TOC entry 1799 (class 2606 OID 16410)
--- Dependencies: 164 164 1933
+-- TOC entry 1820 (class 2606 OID 16410)
+-- Dependencies: 164 164 1959
 -- Name: gerencias_pkey; Type: CONSTRAINT; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -578,8 +656,8 @@ ALTER TABLE ONLY gerencias
 
 
 --
--- TOC entry 1801 (class 2606 OID 16421)
--- Dependencies: 166 166 1933
+-- TOC entry 1822 (class 2606 OID 16421)
+-- Dependencies: 166 166 1959
 -- Name: marcas_pkey; Type: CONSTRAINT; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -588,8 +666,8 @@ ALTER TABLE ONLY marcas
 
 
 --
--- TOC entry 1813 (class 2606 OID 16697)
--- Dependencies: 172 172 1933
+-- TOC entry 1834 (class 2606 OID 16739)
+-- Dependencies: 172 172 1959
 -- Name: pk_empresa; Type: CONSTRAINT; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -598,8 +676,8 @@ ALTER TABLE ONLY estaciones
 
 
 --
--- TOC entry 1803 (class 2606 OID 16432)
--- Dependencies: 168 168 1933
+-- TOC entry 1824 (class 2606 OID 16432)
+-- Dependencies: 168 168 1959
 -- Name: sistemas_operativos_pkey; Type: CONSTRAINT; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -608,8 +686,8 @@ ALTER TABLE ONLY sistemas_operativos
 
 
 --
--- TOC entry 1805 (class 2606 OID 16443)
--- Dependencies: 170 170 1933
+-- TOC entry 1826 (class 2606 OID 16443)
+-- Dependencies: 170 170 1959
 -- Name: ubicaciones_pkey; Type: CONSTRAINT; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -618,8 +696,8 @@ ALTER TABLE ONLY ubicaciones
 
 
 --
--- TOC entry 1806 (class 1259 OID 16703)
--- Dependencies: 172 1933
+-- TOC entry 1827 (class 1259 OID 16765)
+-- Dependencies: 172 1959
 -- Name: fki_empresa; Type: INDEX; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -627,8 +705,8 @@ CREATE INDEX fki_empresa ON estaciones USING btree (usuario_id_empresa);
 
 
 --
--- TOC entry 1807 (class 1259 OID 16709)
--- Dependencies: 172 1933
+-- TOC entry 1828 (class 1259 OID 16766)
+-- Dependencies: 172 1959
 -- Name: fki_gerencia; Type: INDEX; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -636,8 +714,8 @@ CREATE INDEX fki_gerencia ON estaciones USING btree (usuario_id_gerencia);
 
 
 --
--- TOC entry 1808 (class 1259 OID 16721)
--- Dependencies: 172 1933
+-- TOC entry 1829 (class 1259 OID 16767)
+-- Dependencies: 172 1959
 -- Name: fki_marca; Type: INDEX; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -645,8 +723,8 @@ CREATE INDEX fki_marca ON estaciones USING btree (equipo_id_marca);
 
 
 --
--- TOC entry 1809 (class 1259 OID 16727)
--- Dependencies: 172 1933
+-- TOC entry 1830 (class 1259 OID 16768)
+-- Dependencies: 172 1959
 -- Name: fki_sistema_operativo; Type: INDEX; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -654,8 +732,8 @@ CREATE INDEX fki_sistema_operativo ON estaciones USING btree (software_id_sistem
 
 
 --
--- TOC entry 1810 (class 1259 OID 16715)
--- Dependencies: 172 1933
+-- TOC entry 1831 (class 1259 OID 16769)
+-- Dependencies: 172 1959
 -- Name: fki_ubicacion; Type: INDEX; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -663,8 +741,8 @@ CREATE INDEX fki_ubicacion ON estaciones USING btree (usuario_id_ubicacion);
 
 
 --
--- TOC entry 1811 (class 1259 OID 16728)
--- Dependencies: 172 1933
+-- TOC entry 1832 (class 1259 OID 16770)
+-- Dependencies: 172 1959
 -- Name: indx_red_ip; Type: INDEX; Schema: public; Owner: inventario; Tablespace: 
 --
 
@@ -672,8 +750,8 @@ CREATE INDEX indx_red_ip ON estaciones USING btree (red_ip);
 
 
 --
--- TOC entry 1814 (class 2606 OID 16698)
--- Dependencies: 162 172 1796 1933
+-- TOC entry 1835 (class 2606 OID 16740)
+-- Dependencies: 172 162 1817 1959
 -- Name: fk_empresa; Type: FK CONSTRAINT; Schema: public; Owner: inventario
 --
 
@@ -682,8 +760,8 @@ ALTER TABLE ONLY estaciones
 
 
 --
--- TOC entry 1815 (class 2606 OID 16704)
--- Dependencies: 1798 164 172 1933
+-- TOC entry 1836 (class 2606 OID 16745)
+-- Dependencies: 164 172 1819 1959
 -- Name: fk_gerencia; Type: FK CONSTRAINT; Schema: public; Owner: inventario
 --
 
@@ -692,8 +770,8 @@ ALTER TABLE ONLY estaciones
 
 
 --
--- TOC entry 1817 (class 2606 OID 16716)
--- Dependencies: 166 1800 172 1933
+-- TOC entry 1837 (class 2606 OID 16750)
+-- Dependencies: 172 166 1821 1959
 -- Name: fk_marca; Type: FK CONSTRAINT; Schema: public; Owner: inventario
 --
 
@@ -702,8 +780,8 @@ ALTER TABLE ONLY estaciones
 
 
 --
--- TOC entry 1818 (class 2606 OID 16722)
--- Dependencies: 1796 162 172 1933
+-- TOC entry 1838 (class 2606 OID 16755)
+-- Dependencies: 172 1817 162 1959
 -- Name: fk_sistema_operativo; Type: FK CONSTRAINT; Schema: public; Owner: inventario
 --
 
@@ -712,8 +790,8 @@ ALTER TABLE ONLY estaciones
 
 
 --
--- TOC entry 1816 (class 2606 OID 16710)
--- Dependencies: 172 1804 170 1933
+-- TOC entry 1839 (class 2606 OID 16760)
+-- Dependencies: 170 172 1825 1959
 -- Name: fk_ubicacion; Type: FK CONSTRAINT; Schema: public; Owner: inventario
 --
 
@@ -722,7 +800,7 @@ ALTER TABLE ONLY estaciones
 
 
 --
--- TOC entry 1938 (class 0 OID 0)
+-- TOC entry 1964 (class 0 OID 0)
 -- Dependencies: 5
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -733,7 +811,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2015-05-20 19:44:29 VET
+-- Completed on 2015-06-15 10:02:33 VET
 
 --
 -- PostgreSQL database dump complete
