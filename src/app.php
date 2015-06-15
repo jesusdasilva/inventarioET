@@ -16,12 +16,12 @@ $app->register(new TwigServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 $app->register(new DoctrineServiceProvider(), 
-               array('db.options' => array( 'driver' => 'pdo_pgsql',
-                                            'host'      => 'localhost',
-                                            'dbname'    => 'inventariodb',
-                                            'user'      => 'inventario',
-                                            'password'  => '123',
-                                            'charset'   => 'utf8',),
+               array('db.options' => array( 'driver'   => 'pdo_pgsql',
+                                            'host'     => 'localhost',
+                                            'dbname'   => 'inventarioDB',
+                                            'user'     => 'inventario',
+                                            'password' => '123',
+                                            'charset'  => 'utf8',),
 ));
 
 $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {

@@ -1,9 +1,10 @@
 <?php
 
-function GenerarSql($parametro,$buscarPor,$estatus){
+
+function GenerarSql($parametro,$buscarPor,$estatus,$limiteEstatus){
         
     //VARIABLES
-    $sql = 'SELECT * FROM estaciones ';
+    $sql = 'SELECT * FROM vista_estaciones ';
     $where   = "";
     $orderBy = "";
 
@@ -79,7 +80,12 @@ function GenerarSql($parametro,$buscarPor,$estatus){
     	
     $sql .= $where;
     $sql .= $orderBy;
-    $sql .= " OFFSET 0 LIMIT 5";
+
+    //REALIZAR LA BUSQUEDA SIN LIMITES
+    if($limiteEstatus == TRUE){
+        $sql .= " OFFSET 0 LIMIT 5";
+    }
 
     return $sql;
-    }
+    
+}

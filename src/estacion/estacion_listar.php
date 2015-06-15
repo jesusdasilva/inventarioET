@@ -51,24 +51,29 @@ $estacion->post('/estacion/listar', function() use ($app) {
 
     try{
     
-        //CALCULAR LAS PÁGINAS
-        $maximoRegistros = 5;
-        $sql = " SELECT count( * ) AS numero FROM estaciones "; 
-        $numeroRegistro = $app['db']->fetchColumn($sql, array());
-        $numeroPaginas = ceil($numeroRegistro / $maximoRegistros) -1;
-            
+           
         //DATOS DEL FORMULARIO
         $parametro = $app['request']->get('parametro');
-        $buscarPor   = $app['request']->get('radios');
-        $estatus   =  $app['request']->get('checkboxes');
+        $buscarPor = $app['request']->get('radios');
+        $estatus   = $app['request']->get('checkboxes');
+
+        //CALCULAR LAS PÁGINAS
+        $maximoRegistros = 5;
+        $sql = GenerarSql($parametro,$buscarPor,$estatus,FALSE);
+        $numeroRegistro = count($app['db']->fetchAll($sql, array()));
+        $numeroPaginas = ceil($numeroRegistro / $maximoRegistros) -1;
+        
+        //$app['session']->getFlashBag()->add('danger',array('message' => $numeroRegistro . $sql));
 
         //SQL DE LOS REGISTROS DE LA PÁGINA
-        $sql = GenerarSql($parametro,$buscarPor,$estatus);
+        $sql = GenerarSql($parametro,$buscarPor,$estatus,TRUE);
         
         //BUSCAR ESTACIÓN
         $estaciones = $app['db']->fetchAll($sql, array());
 
-        $app['session']->getFlashBag()->add('danger',array('message' => $sql));
+
+
+        //$app['session']->getFlashBag()->add('danger',array('message' => $sql));
 
         //ENVIAR DATOS A LA PLANTILLA
         return $app['twig']->render('estacion/estacion_listado.twig',  
