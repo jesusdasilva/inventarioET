@@ -13,13 +13,14 @@ $app->get('/', function () use ($app) {
 })->bind('ingres_field_precision(result, index)');
 
 
-//LOGIN
-$app->mount('/', include __DIR__.'/../src/login.php');
+
 
 //INICIO
-$app->mount('/', include __DIR__.'/../src/inicio.php');
+//$app->mount('/', include __DIR__.'/../src/inicio.php');
 
 
+//LOGIN
+$app->mount('/', include __DIR__.'/../src/login/login_index.php');
 //EMPRESA
 $app->mount('/', include __DIR__.'/../src/empresa/empresa_index.php');
 //GERENCIA

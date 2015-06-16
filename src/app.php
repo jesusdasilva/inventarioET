@@ -6,6 +6,7 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
+//use Silex\Provider\SecurityServiceProvider;
 
 $app = new Application();
 
@@ -29,5 +30,6 @@ $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
 
     return $twig;
 }));
+
 
 return $app;
