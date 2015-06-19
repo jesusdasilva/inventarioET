@@ -1,0 +1,13 @@
+<?php
+
+/*
+ *  INICIO
+ */
+
+$login->get('/inicio', function() use ($app) {
+
+        
+    return $app['twig']->render('inicio/inicio.twig');
+
+})
+->bind('inicio');
