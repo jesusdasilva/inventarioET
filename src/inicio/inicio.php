@@ -4,7 +4,7 @@
  *  INICIO
  */
 
-$login->get('/inicio', function() use ($app) {
+$inicio->get('/inicio', function() use ($app) {
 
         
     return $app['twig']->render('inicio/inicio.twig');

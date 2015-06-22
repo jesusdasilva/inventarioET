@@ -35,22 +35,22 @@ $app->mount('/', include __DIR__.'/../src/sistema_operativo/sistema_operativo_in
 $app->mount('/', include __DIR__.'/../src/estacion/estacion_index.php');
 
 //BUSCAR
-$app->mount('/', include __DIR__.'/../src/buscar.php');
+//$app->mount('/', include __DIR__.'/../src/buscar.php');
 
 //LISTADO
-$app->mount('/', include __DIR__.'/../src/listar.php');
+//$app->mount('/', include __DIR__.'/../src/listar.php');
 
 //MODIFICAR
-$app->mount('/', include __DIR__.'/../src/modificar.php');
+//$app->mount('/', include __DIR__.'/../src/modificar.php');
 
 //NUEVO
-$app->mount('/', include __DIR__.'/../src/ingresar.php');
+//$app->mount('/', include __DIR__.'/../src/ingresar.php');
 
 //LIBERAR
-$app->mount('/', include __DIR__.'/../src/liberar.php');
+//$app->mount('/', include __DIR__.'/../src/liberar.php');
 
 //CREAR VLAN
-$app->mount('/', include __DIR__.'/../src/crear_vlan.php');
+//$app->mount('/', include __DIR__.'/../src/crear_vlan.php');
 
 //CREAR VLAN
 $app->get('/prueba', function () use ($app) {

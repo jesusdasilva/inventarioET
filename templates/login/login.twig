@@ -14,6 +14,8 @@
 
 <div class="container" style="padding:250px;padding-top: 70px;"> 
 
+{% include 'mensaje_alerta.twig' %}
+
 <!-- PANEL PRINCIPAL -->
 <div class="panel panel-primary">
 <div class="panel-heading">
@@ -34,20 +36,20 @@
 <div class="col-xs-6" style="padding-right:50px;padding-top: 40px;" >
 
 <!-- FORMULARIO LOGIN -->
-<form class="form-horizontal"  role="form">
+<form class="form-horizontal"  role="form" action="{{ app.url_generator.generate('verificar_acceso') }}" method="post">
 <fieldset>
 
     <div class="form-group">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input class="form-control" id="login-usuario" type="text"  name="login-usuario" placeholder="Usuario">
+        <input class="form-control" id="usuario" type="text"  name="usuario" placeholder="Usuario" Required>
     </div>
     </div>
 
     <div class="form-group">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input class="form-control" id="login-password" type="password"  name="password" placeholder="Clave">
+        <input class="form-control" id="clave" type="password"  name="clave" placeholder="Clave" Required>
     </div>
     </div>
 
