@@ -92,8 +92,8 @@
       
       <!--BARRA IZQUIERDA-->
       <ul class="nav navbar-nav navbar-right">
-          <p class="navbar-text">Usuario: dasilvajm</p>
-          <li><img src="{{ app.request.basepath }}/img/dasilvajm.jpg" alt="usuario" class="img-circle " style="width: 50px;height: 50px"></li>              
+          <p class="navbar-text">Usuario: {{ app.session.get('nombre') }}</p>
+          <li><img src="{{ app.request.basepath }}/img/{{ app.session.get('indicador') }}.jpg" alt="" class="img-circle " style="width: 50px;height: 50px"></li>              
         <li><a href="{{ app.url_generator.generate('login') }}">Salir</a></li>
       </ul>
       <!--BARRA IZQUIERDA-->

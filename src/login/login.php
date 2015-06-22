@@ -6,7 +6,10 @@
 
 $login->get('/login', function() use ($app) {
 
-    $app['session']->remove('usuario');    
+    //ELIMINAR SESIÓN
+    $app['session']->remove('indicador');
+    $app['session']->remove('nombre');
+
     return $app['twig']->render('login/login.twig');
 
 })
@@ -17,25 +20,31 @@ $login->post('/login/verificar_acceso',function() use ($app){
 	try{
 
 		//DATOS DEL FORULARIO
-		$usuario = trim($app['request']->get('usuario'));
-        $clave 	 = trim($app['request']->get('clave'));
+		$indicador = $app['request']->get('indicador');
+        $clave     = $app['request']->get('clave');
         
         //SQL
-        $sql = 'SELECT * FROM usuarios WHERE usuario = ? AND clave = ?';        
+        $sql = 'SELECT * FROM usuarios WHERE indicador = ? AND clave = ?';        
 
         //BUSCAR ID
-        $usuarioValido = $app['db']->fetchColumn($sql,array($usuario,$clave));
+        $usuarioValido = $app['db']->fetchAssoc($sql,array($indicador,$clave));
 
 		//VERIFICAR AL USUARIO
         if($usuarioValido){
 
-            $app['session']->set('usuario', $usuario);
+            //GUARDAR LA SESIÓN
+            $app['session']->set('indicador',$usuarioValido['indicador']);
+            $app['session']->set('nombre',$usuarioValido['nombre']);
+
+
+            //REDIRECCIONAR AL INICIO
             return $app->redirect($app['url_generator']->generate('inicio')); 
         
         }else{
 
             //MENSAJE                  
-            $app['session']->getFlashBag()->add('danger',array('message' => 'Usuario o Clave inválida'));            
+            $app['session']->getFlashBag()->add('danger',array('message' => 'Usuario o Clave inválida'));   
+
             //REDIRECCIONAR AL FORMULARIO LISTAR
             return $app->redirect($app['url_generator']->generate('login'));    
 

@@ -53,9 +53,10 @@ $app->mount('/', include __DIR__.'/../src/estacion/estacion_index.php');
 //$app->mount('/', include __DIR__.'/../src/crear_vlan.php');
 
 //CREAR VLAN
+/*
 $app->get('/prueba', function () use ($app) {
     return $app['twig']->render('prueba6.twig', array());
-})->bind('prueba');
+})->bind('prueba');*/
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {

@@ -8,7 +8,7 @@ $inicio = $app['controllers_factory'];
 
 $inicio->before(function() use ($app){
         
-    if($app['session']->get('usuario') == null){
+    if($app['session']->get('indicador') == null){
 
 	    return $app->redirect($app['url_generator']->generate('login'));
     }
