@@ -4,7 +4,7 @@
  *  LOGIN
  */
 
-$login->get('/login', function() use ($app) {
+$login->get('/', function() use ($app) {
 
     //ELIMINAR SESIÓN
     $app['session']->remove('indicador');
