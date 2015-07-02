@@ -12,11 +12,14 @@ $empresa->get('/empresa/buscar/{id}',function($id) use($app){
         $sql = 'SELECT * FROM vista_empresas WHERE id = ? ';	
 
         //BUSCAR ID
-        $empresa = $app['db']->fetchAssoc($sql, array($id));
+        $registros = $app['db']->fetchAssoc($sql, array($id));
 
         //MOSTRAR DATOS
         return $app['twig']->render('empresa/empresa_datos.twig',
-                                    array('empresa' => $empresa ,'editar' =>TRUE));
+                                    array('id' => $registros['id'],
+                                          'nombre' => $registros['nombre'],
+                                          'observacion'=>$registros['observacion'],
+                                          'editar' =>TRUE));
     
     } catch (Exception $e) {
         

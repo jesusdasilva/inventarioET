@@ -1,10 +1,27 @@
 {# MENSAJE DE ERROR#}
 
-{% extends "layout.twig" %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title '' %} - InvenatrioET Beta 0.1</title>
 
-{% block contenido %}
-    
-{% include 'mensaje_alerta.twig' %}
+<link   href="{{ app.request.basepath }}/css/bootstrap.cirulean.min.css" rel="stylesheet" media="screen">
+<link   href="{{ app.request.basepath }}/css/menu-multinivel.css" rel="stylesheet" media="screen">
+<script src="{{ app.request.basepath }}/js/jquery.min.js"></script>
+<script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+<script src="{{ app.request.basepath }}/js/mensaje_borrado.js"></script>
+        
+</head>
+<body>
+ 
+	<div class="container" style="padding: 5px;padding-top: 70px; ">
 
-{% endblock %}
+	{% include 'mensaje_alerta.twig' %}
+
+    </div>
+        
+</body>
+</html>
+
+
 
