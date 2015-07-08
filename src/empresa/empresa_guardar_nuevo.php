@@ -1,6 +1,6 @@
 <?php
 /*
- EMPRESA GUARDAR 
+ EMPRESA GUARDAR NUEVO
  */
 $empresa->post('/empresa/guardar', function() use ($app) {
 
@@ -23,7 +23,7 @@ $empresa->post('/empresa/guardar', function() use ($app) {
             
             //INSERTAR         
             $registrosAfectados = $app['db']->insert('empresas',array('nombre' =>$nombre,
-                                                                      'observacion'=>$observacion);
+                                                                      'observacion'=>$observacion));
             if($registrosAfectados <= 0)
                 throw new Exception('Error, No se pudo crear la empresa.');
 
@@ -32,7 +32,7 @@ $empresa->post('/empresa/guardar', function() use ($app) {
             //MENSAJE
             $mensaje = 'La empresa se encuentra repetida';
             $app['session']->getFlashBag()->add('danger',array('message' => $message));
-            //RENVIAR A FORMULÁRIO DATOS
+            //REENVIAR A FORMULÁRIO DATOS
             return $app['twig']->render('empresa/empresa_datos.twig',array('nombre' => $nombre,
                                                                            'observacion' => $observacion, 
                                                                            'editar'=> TRUE));
@@ -56,4 +56,4 @@ $empresa->post('/empresa/guardar', function() use ($app) {
     }
 	
 })
-->bind('empresaGuardar');
+->bind('empresaGuardarNuevo');
